@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "",
+    "privacy": "",
+    "support": ""
+  },
+  "footer": {
+    "sourceCode": ""
+  },
+  "language": {
+    "switchLabel": ""
+  },
+  "notFound": {
+    "title": "",
+    "body": "",
+    "backHome": ""
+  }
+}
