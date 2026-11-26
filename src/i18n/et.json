@@ -1,8 +1,8 @@
 {
   "nav": {
     "home": "Avaleht",
-    "privacy": "",
-    "support": ""
+    "privacy": "Privaatsuspoliitika",
+    "support": "Tugi"
   },
   "footer": {
     "sourceCode": "Lähtekood GitHub-is"
@@ -11,8 +11,8 @@
     "switchLabel": "Keel"
   },
   "notFound": {
-    "title": "",
-    "body": "",
-    "backHome": ""
+    "title": "Lehte ei leitud",
+    "body": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
+    "backHome": "Mine avalehele"
   }
 }
