@@ -1,14 +1,14 @@
 {
   "nav": {
-    "home": "",
+    "home": "Avaleht",
     "privacy": "",
     "support": ""
   },
   "footer": {
-    "sourceCode": ""
+    "sourceCode": "Lähtekood GitHub-is"
   },
   "language": {
-    "switchLabel": ""
+    "switchLabel": "Keel"
   },
   "notFound": {
     "title": "",
