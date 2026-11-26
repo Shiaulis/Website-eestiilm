@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "privacy": "Privacy policy",
+    "support": "Support"
+  },
+  "footer": {
+    "sourceCode": "Source code on GitHub"
+  },
+  "language": {
+    "switchLabel": "Language"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist or has moved.",
+    "backHome": "Go to the home page"
+  }
+}

@@ -29,7 +29,8 @@ Do not rename or move the privacy and support pages after they are live: their U
 ## Localization
 
 - English (`en`, default) and Estonian (`et`) only, matching the app. Do not add other languages.
-- The Estonian translation workflow (by hand or through Crowdin like the app) is not decided yet. Ask the owner before adding Estonian text.
+- Estonian is translated in Crowdin, like the app. Crowdin syncs `master` through its GitHub integration, using `crowdin.yml`, and opens PRs titled "Update translations from Crowdin" from its service branch. English source text lives in files listed in `crowdin.yml` (today `src/i18n/en.json`), never hard-coded in templates.
+- Never write or edit Estonian files by hand: they come from Crowdin PRs. Add new English text to a source file in `crowdin.yml`, and add new source files to `crowdin.yml` in the same PR.
 
 ## Hosting and deploy
 
