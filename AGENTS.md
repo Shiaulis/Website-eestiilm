@@ -23,7 +23,8 @@ The owner is an iOS developer, not primarily a web developer. On every web chang
 - `src/views/`: page bodies shared by the English and Estonian route files.
 - `src/layouts/BaseLayout.astro`: `<head>` (title, description, canonical, `hreflang`, `color-scheme`, icons, Open Graph and Twitter card tags), header, horizon line and footer.
 - `src/components/`: the header (icon, wordmark, page links, EN / ET switch) and the footer (links, data credit, copyright).
-- `src/i18n/`: UI strings (`en.json`, `et.json`) and the `useTranslations(locale)` helper.
+- `src/i18n/`: UI strings (`en.json`, `et.json`), the `useTranslations(locale)` helper, and `getPage(name, locale)` in `pages.ts`, which reads a page's Markdown text.
+- `src/content/pages/<locale>/<page>.md`: page text (privacy policy, support, landing). `src/content.config.ts` defines the `pages` collection and its front matter.
 - `src/site.ts`: untranslated constants (app name, site URL, GitHub link, data source link).
 - `src/styles/global.css`: palette, font and base styles shared by every page.
 - `public/`: static files served as they are: icons, share image, `fonts/` and `.htaccess`.
@@ -67,10 +68,10 @@ Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.h
 ## Localization
 
 - English (`en`, default) and Estonian (`et`) only, matching the app. Do not add other languages.
-- Estonian is translated in Crowdin, like the app. Crowdin syncs `master` through its GitHub integration, using `crowdin.yml`, and opens PRs titled "Update translations from Crowdin" from its service branch. English source text lives in files listed in `crowdin.yml` (today `src/i18n/en.json`), never hard-coded in templates.
+- Estonian is translated in Crowdin, like the app. Crowdin syncs `master` through its GitHub integration, using `crowdin.yml`, and opens PRs titled "Update translations from Crowdin" from its service branch. English source text lives in files listed in `crowdin.yml` (today `src/i18n/en.json` and `src/content/pages/en/*.md`), never hard-coded in templates.
 - Never write or edit Estonian files by hand: they come from Crowdin PRs. Add new English text to a source file in `crowdin.yml`, and add new source files to `crowdin.yml` in the same PR.
 - UI strings: read them with `useTranslations(locale)` from `src/i18n`. Crowdin exports untranslated or unapproved strings as empty strings; the helper treats empty and missing Estonian strings as untranslated and shows English instead. `npm test` covers this.
-- Page text (privacy policy, support, landing): one Markdown file per page and locale, `src/content/pages/en/<page>.md`, with the Estonian file at `src/content/pages/et/<page>.md`. The first page ticket adds this entry to `crowdin.yml`:
+- Page text (privacy policy, support, landing): one Markdown file per page and locale, `src/content/pages/en/<page>.md`, with the Estonian file at `src/content/pages/et/<page>.md`. `crowdin.yml` has this entry for them:
 
   ```yaml
   - source: /src/content/pages/en/*.md
@@ -79,6 +80,14 @@ Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.h
   ```
 
   Crowdin can't skip untranslated strings in Markdown, so `skip_untranslated_files` exports an Estonian page only once it is fully translated. Until then the Estonian URL shows the English text, never a half-translated page.
+- Crowdin offers a Markdown file's front matter for translation too: `title`, `description` and `summary` are translated; `updated` is a date that stays as it is.
+
+### Adding a page with Markdown text
+
+1. Write the English text in `src/content/pages/en/<page>.md`. Front matter: `title` (the H1 and `<title>`), `description` (search results and link previews), and optionally `updated` (`YYYY-MM-DD`, shown as "Last updated") and `summary` (a list of short points). The body starts at the first `## ` section; don't repeat the H1.
+2. Add a view in `src/views/` that calls `getPage('<page>', locale)` from `src/i18n/pages.ts`. It returns the entry, the rendered `Content` and `headings`, and the locale of the text it found. Set that locale as `lang` on the text when it differs from the page's, and read the labels around the text with `useTranslations(page.locale)`, so a fallback page is English throughout. `src/views/Privacy.astro` is the example.
+3. Add the route files `src/pages/<page>.astro` and `src/pages/et/<page>.astro`, each rendering the view.
+4. New labels around the text (not the text itself) go in `src/i18n/en.json`. `crowdin.yml` already covers every file in `src/content/pages/en/`.
 
 ## Hosting and deploy
 
