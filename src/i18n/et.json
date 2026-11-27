@@ -1,33 +1,70 @@
 {
-  "nav": {
-    "home": "Avaleht",
-    "privacy": "Privaatsuspoliitika",
-    "support": "Tugi"
+  "nav_home": {
+    "message": "Avaleht",
+    "description": ""
   },
-  "footer": {
-    "sourceCode": "Lähtekood GitHub-is",
-    "dataCredit": "Ilmaprognoosi andmed pärinevad Keskkonnaagentuurilt ({link}). Eesti Ilm on sõltumatu rakendus ega ole seotud nimetatud asutusega."
+  "nav_privacy": {
+    "message": "Privaatsuspoliitika",
+    "description": ""
   },
-  "language": {
-    "switchLabel": "Keel"
+  "nav_support": {
+    "message": "Tugi",
+    "description": ""
   },
-  "notFound": {
-    "title": "Lehte ei leitud",
-    "body": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
-    "backHome": "Mine avalehele"
+  "footer_source_code": {
+    "message": "Lähtekood GitHub-is",
+    "description": ""
   },
-  "site": {
-    "description": "Eesti Ilm on iOSi ilmarakendus Eesti jaoks.",
-    "shareImageAlt": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app"
+  "footer_data_credit": {
+    "message": "Ilmaprognoosi andmed pärinevad Keskkonnaagentuurilt ({link}). Eesti Ilm on sõltumatu rakendus ega ole seotud nimetatud asutusega.",
+    "description": ""
   },
-  "page": {
-    "lastUpdated": "",
-    "onThisPage": "",
-    "summaryLink": "",
-    "summaryTitle": ""
+  "language_switch_label": {
+    "message": "Keel",
+    "description": ""
   },
-  "placeholder": {
-    "home": "Rakenduse veebileht on loomisel. Tule peagi tagasi.",
-    "page": "Käesolev lehekülg on loomisel. Tule peagi tagasi."
+  "not_found_title": {
+    "message": "Lehte ei leitud",
+    "description": ""
+  },
+  "not_found_body": {
+    "message": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
+    "description": ""
+  },
+  "not_found_back_home": {
+    "message": "Mine avalehele",
+    "description": ""
+  },
+  "site_description": {
+    "message": "Eesti Ilm on iOSi ilmarakendus Eesti jaoks.",
+    "description": ""
+  },
+  "site_share_image_alt": {
+    "message": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app",
+    "description": ""
+  },
+  "page_last_updated": {
+    "message": "",
+    "description": ""
+  },
+  "page_on_this_page": {
+    "message": "",
+    "description": ""
+  },
+  "page_summary_link": {
+    "message": "",
+    "description": ""
+  },
+  "page_summary_title": {
+    "message": "",
+    "description": ""
+  },
+  "placeholder_home": {
+    "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi.",
+    "description": ""
+  },
+  "placeholder_page": {
+    "message": "Käesolev lehekülg on loomisel. Tule peagi tagasi.",
+    "description": ""
   }
 }
