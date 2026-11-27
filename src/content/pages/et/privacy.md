@@ -63,7 +63,7 @@ Oma õiguste kasutamiseks kirjuta aadressile [support@eestiilm.app](mailto:suppo
 
 ## Muudatused
 
-Kui privaatsuspoliitika muutub, avaldatakse uus versioon sellel lehel ja lehe ülaosas olev uuendamise kuupäev muutub koos sellega.
+Kui privaatsuspoliitika muutub, avaldatakse uus versioon sellel lehel ja lehe ülaosas olev kuupäev „Viimati uuendatud“ muutub koos sellega.
 
 Privaatsuspoliitika on avaldatud inglise ja eesti keeles. Kui need kaks versiooni erinevad, kehtib ingliskeelne versioon.
 

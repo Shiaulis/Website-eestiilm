@@ -33,16 +33,16 @@
     "message": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app"
   },
   "page_last_updated": {
-    "message": ""
+    "message": "Viimati uuendatud: {date}"
   },
   "page_on_this_page": {
-    "message": ""
+    "message": "Sellel lehel"
   },
   "page_summary_link": {
-    "message": ""
+    "message": "Kokkuvõte"
   },
   "page_summary_title": {
-    "message": ""
+    "message": "Lühidalt"
   },
   "placeholder_home": {
     "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi."
