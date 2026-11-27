@@ -5,7 +5,8 @@
     "support": "Tugi"
   },
   "footer": {
-    "sourceCode": "Lähtekood GitHub-is"
+    "sourceCode": "Lähtekood GitHub-is",
+    "dataCredit": ""
   },
   "language": {
     "switchLabel": "Keel"
@@ -16,7 +17,8 @@
     "backHome": "Mine avalehele"
   },
   "site": {
-    "description": ""
+    "description": "",
+    "shareImageAlt": ""
   },
   "placeholder": {
     "home": "",
