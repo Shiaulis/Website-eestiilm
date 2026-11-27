@@ -37,7 +37,7 @@ Arendajale ei saadeta midagi: rakendusel ei ole oma serverit.
 
 Apple saadab arendajale kokkujooksmiste aruandeid ja kasutusstatistikat, näiteks selle, mitmes seadmes rakendust kasutatakse, ainult siis, kui oled otsustanud oma iPhone'i analüüsiandmeid jagada. Apple muudab need andmed anonüümseks enne, kui arendaja neid näeb, ja arendaja kasutab neid ainult rakenduse vigade leidmiseks ja parandamiseks.
 
-Sina otsustad, kas neid jagada. Ava oma iPhone'is Settings › Privacy & Security › Analytics & Improvements. Euroopa Liidus on Apple'iga ja rakenduste arendajatega jagamiseks üks ühine lüliti, Share iPhone & Watch Analytics; mõnes teises piirkonnas on lisaks eraldi lüliti Share With App Developers.
+Sina otsustad, kas neid jagada. Ava oma iPhone'is Settings › Privacy & Security › Analytics & Improvements. Euroopa Liidus on Apple'iga ja rakenduste arendajatega jagamiseks üks ühine lüliti, Share iPhone Analytics (kui iPhone'iga on seotud Apple Watch, siis Share iPhone & Watch Analytics); mõnes teises piirkonnas on lisaks eraldi lüliti Share With App Developers.
 
 ## Asukoht
 
