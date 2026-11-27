@@ -1,27 +1,41 @@
 {
-  "nav": {
-    "home": "Avaleht",
-    "privacy": "Privaatsuspoliitika",
-    "support": "Tugi"
+  "nav_home": {
+    "message": "Avaleht"
   },
-  "footer": {
-    "sourceCode": "Lähtekood GitHub-is",
-    "dataCredit": ""
+  "nav_privacy": {
+    "message": "Privaatsuspoliitika"
   },
-  "language": {
-    "switchLabel": "Keel"
+  "nav_support": {
+    "message": "Tugi"
   },
-  "notFound": {
-    "title": "Lehte ei leitud",
-    "body": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
-    "backHome": "Mine avalehele"
+  "footer_source_code": {
+    "message": "Lähtekood GitHub-is"
   },
-  "site": {
-    "description": "",
-    "shareImageAlt": ""
+  "footer_data_credit": {
+    "message": ""
   },
-  "placeholder": {
-    "home": "",
-    "page": ""
+  "language_switch_label": {
+    "message": "Keel"
+  },
+  "not_found_title": {
+    "message": "Lehte ei leitud"
+  },
+  "not_found_body": {
+    "message": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud."
+  },
+  "not_found_back_home": {
+    "message": "Mine avalehele"
+  },
+  "site_description": {
+    "message": ""
+  },
+  "site_share_image_alt": {
+    "message": ""
+  },
+  "placeholder_home": {
+    "message": ""
+  },
+  "placeholder_page": {
+    "message": ""
   }
 }

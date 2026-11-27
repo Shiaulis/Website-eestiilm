@@ -15,9 +15,13 @@ commit_message: "Update %language% translations of %original_file_name% from Cro
 append_commit_message: false
 
 files:
-  # UI strings shared by every page: navigation, footer, language switch, 404.
+  # UI strings shared by every page: navigation, footer, language switch, 404. The file is in
+  # Chrome JSON format: flat keys, each with the text in `message` and a `description` that
+  # Crowdin shows translators as context. `type: chrome` makes sure Crowdin doesn't read it as
+  # plain JSON, which would offer each description for translation as a string of its own.
   - source: /src/i18n/en.json
     translation: /src/i18n/%two_letters_code%.json
+    type: chrome
   # Page text (privacy policy, support, landing): one Markdown file per page. Crowdin can't skip
   # untranslated strings in Markdown, so an Estonian page is exported only once it is fully
   # translated. Until then the Estonian URL shows the English text.

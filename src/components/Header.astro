@@ -15,8 +15,8 @@ const { languageSwitchPath = path } = Astro.props;
 
 // Text links in the header; on phones they are hidden, because the footer has them too.
 const pageLinks = [
-	{ path: '/support/', label: t('nav.support') },
-	{ path: '/privacy/', label: t('nav.privacy') },
+	{ path: '/support/', label: t('nav_support') },
+	{ path: '/privacy/', label: t('nav_privacy') },
 ];
 ---
 
@@ -46,7 +46,7 @@ const pageLinks = [
 					}
 				</ul>
 			</nav>
-			<nav class="language" aria-label={t('language.switchLabel')}>
+			<nav class="language" aria-label={t('language_switch_label')}>
 				<ul>
 					{
 						locales.map((l) => (

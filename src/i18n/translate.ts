@@ -1,23 +1,24 @@
-// Looks up UI strings by dotted key ("nav.privacy") with an English fallback.
+// Looks up UI strings by key ("nav_privacy") with an English fallback.
 //
-// Crowdin keeps every key in a translated file and leaves untranslated or unapproved strings
-// as empty strings (""). Both empty and missing translations fall back to English, so a page
-// never shows blank text. A key missing from English is a bug and fails the build.
+// The files use Crowdin's Chrome JSON format: a flat object where each key holds the text in
+// `message` and, in English, the translator's context in `description`:
+//   { "nav_privacy": { "message": "Privacy policy", "description": "Link to the privacy policy..." } }
+//
+// Crowdin may export an untranslated or unapproved string as an empty `message`, or leave the
+// key out. Both fall back to English, so a page never shows blank text. A key missing from
+// English is a bug and fails the build.
 
-export type Messages = { [key: string]: string | Messages };
+export interface Message {
+	message: string;
+	/** Context for translators, shown in Crowdin's editor. Required in en.json. */
+	description?: string;
+}
 
-/** Dotted paths of every string in `T`, e.g. "nav.home" | "nav.privacy". */
-export type MessageKey<T, Prefix extends string = ''> = {
-	[K in keyof T & string]: T[K] extends string ? `${Prefix}${K}` : MessageKey<T[K], `${Prefix}${K}.`>;
-}[keyof T & string];
+export type Messages = { [key: string]: Message | undefined };
 
 export function lookup(messages: Messages | undefined, key: string): string | undefined {
-	let node: string | Messages | undefined = messages;
-	for (const part of key.split('.')) {
-		if (node === undefined || typeof node === 'string') return undefined;
-		node = node[part];
-	}
-	return typeof node === 'string' ? node : undefined;
+	const entry = messages && Object.hasOwn(messages, key) ? messages[key] : undefined;
+	return typeof entry?.message === 'string' ? entry.message : undefined;
 }
 
 export function createTranslator<Key extends string = string>(

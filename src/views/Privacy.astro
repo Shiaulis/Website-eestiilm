@@ -20,7 +20,7 @@ const textLang = page.locale === locale ? undefined : page.locale;
 const sections = headings.filter((heading) => heading.depth === 2);
 
 // "Last updated {date}": the date is formatted for the text's language, as a <time> element.
-const lastUpdated = t('page.lastUpdated');
+const lastUpdated = t('page_last_updated');
 const lastUpdatedParts = splitAtPlaceholder(lastUpdated, 'date');
 const updatedText =
 	updated && new Intl.DateTimeFormat(page.locale, { dateStyle: 'long', timeZone: 'UTC' }).format(updated);
@@ -30,9 +30,9 @@ const updatedISO = updated?.toISOString().slice(0, 10);
 <BaseLayout title={title} description={description}>
 	<div class="legal" lang={textLang}>
 		<nav class="toc" aria-labelledby="toc-title">
-			<p id="toc-title">{t('page.onThisPage')}</p>
+			<p id="toc-title">{t('page_on_this_page')}</p>
 			<ol>
-				{summary && <li><a href="#summary">{t('page.summaryLink')}</a></li>}
+				{summary && <li><a href="#summary">{t('page_summary_link')}</a></li>}
 				{sections.map((section) => <li><a href={`#${section.slug}`}>{section.text}</a></li>)}
 			</ol>
 		</nav>
@@ -56,7 +56,7 @@ const updatedISO = updated?.toISOString().slice(0, 10);
 			{
 				summary && (
 					<section class="summary" id="summary" aria-labelledby="summary-title">
-						<h2 id="summary-title">{t('page.summaryTitle')}</h2>
+						<h2 id="summary-title">{t('page_summary_title')}</h2>
 						<ul>
 							{summary.map((point) => <li>{point}</li>)}
 						</ul>
