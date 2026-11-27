@@ -3,9 +3,15 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getLocale, languageName, locales, pathWithoutLocale, useTranslations } from '../i18n';
 import { SITE_NAME } from '../site';
 
+interface Props {
+	/** Where the EN / ET switch goes, without the locale prefix. Defaults to the current page. */
+	languageSwitchPath?: string;
+}
+
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const path = pathWithoutLocale(Astro.url.pathname);
+const { languageSwitchPath = path } = Astro.props;
 
 // Text links in the header; on phones they are hidden, because the footer has them too.
 const pageLinks = [
@@ -46,7 +52,7 @@ const pageLinks = [
 						locales.map((l) => (
 							<li>
 								<a
-									href={getRelativeLocaleUrl(l, path)}
+									href={getRelativeLocaleUrl(l, languageSwitchPath)}
 									hreflang={l}
 									lang={l}
 									title={languageName(l)}

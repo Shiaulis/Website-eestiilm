@@ -1,0 +1,92 @@
+---
+// The 404 page, shared by /404.html and /et/404/index.html. Apache serves one of them, with the 404
+// status, for every missing URL (ErrorDocument in public/.htaccess and public/et/.htaccess).
+// Layout from the design book's 404 mockup: the icon's cloud, the "404" label, the title, the
+// body text and a button to the home page.
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocale, useTranslations } from '../i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t('notFound.title')} description={t('notFound.body')} notFound>
+	<div class="not-found">
+		<!-- The cloud from the app icon (one path, as in the design book), in the Cloud colour. -->
+		<svg viewBox="12 44 76 40" aria-hidden="true" focusable="false">
+			<path
+				transform="translate(12.56 41.72) scale(1.364)"
+				d="M14.000 26.000 A10.0 10.0 0 0 1 13.943 6.000 A2.5 2.5 0 0 0 16.198 4.549 A13.0 13.0 0 0 1 40.448 6.252 A2.5 2.5 0 0 0 42.659 8.024 A9.0 9.0 0 0 1 42.000 26.000 Z"
+			></path>
+		</svg>
+		<p class="code">404</p>
+		<h1>{t('notFound.title')}</h1>
+		<p class="body">{t('notFound.body')}</p>
+		<a class="button" href={getRelativeLocaleUrl(locale, '/')}>{t('notFound.backHome')}</a>
+	</div>
+</BaseLayout>
+
+<style>
+	/*
+	 * Centred column. The mockup has 110px above the cloud and 120px below the button (72px and
+	 * 80px on phone), measured from the horizon line and to the footer's top border. <main> and
+	 * the footer already add 72px and 56px (40px and 44px on phone), so only the rest is here.
+	 */
+	.not-found {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 38px 0 64px;
+		text-align: center;
+	}
+
+	svg {
+		display: block;
+		width: 150px;
+		height: auto;
+		fill: var(--color-cloud);
+	}
+
+	.code {
+		margin: 24px 0 0;
+		color: var(--color-secondary-text);
+		font-size: 0.875rem; /* 14px */
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+
+	h1 {
+		margin: 8px 0 12px;
+	}
+
+	.body {
+		max-width: 27.5rem; /* 440px */
+		margin: 0 0 30px;
+		color: var(--color-secondary-text);
+	}
+
+	/* Button: Accent fill with On-accent text, 48px tall, 12px radius (also on the focus ring). */
+	.button {
+		display: inline-flex;
+		align-items: center;
+		min-height: 48px;
+		padding: 0 22px;
+		border-radius: 12px;
+		background: var(--color-accent);
+		color: var(--color-on-accent);
+		font-size: 1rem; /* 16px */
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	@media (max-width: 40em) {
+		.not-found {
+			padding: 32px 0 36px;
+		}
+
+		svg {
+			width: 116px;
+		}
+	}
+</style>

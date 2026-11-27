@@ -1,0 +1,5 @@
+# Missing URLs under /et/ get the Estonian 404 page (keeps the 404 status code).
+# Apache reads this file for every request under /et/, and it overrides the English
+# ErrorDocument in the root public/.htaccess. All other root settings still apply here.
+# Astro builds src/pages/et/404.astro as et/404/index.html (only the root 404 becomes 404.html).
+ErrorDocument 404 /et/404/index.html

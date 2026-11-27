@@ -1,5 +1,8 @@
 # Apache settings for Hostinger, copied from Website-telbin.dev.
-# EES-107 adds "ErrorDocument 404 /404.html" together with the 404 page.
+
+# Serve the site's own 404 page for missing URLs (keeps the 404 status code).
+# Missing URLs under /et/ get the Estonian page instead: see et/.htaccess.
+ErrorDocument 404 /404.html
 
 # Send www.eestiilm.app to the canonical https://eestiilm.app (same path and query string)
 <IfModule mod_rewrite.c>
