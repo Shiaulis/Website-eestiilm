@@ -1,0 +1,31 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocale, languageName, locales, pathWithoutLocale, useTranslations } from '../i18n';
+import { SITE_NAME } from '../site';
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const path = pathWithoutLocale(Astro.url.pathname);
+---
+
+<header>
+	<p><a href={getRelativeLocaleUrl(locale, '/')}>{SITE_NAME}</a></p>
+	<nav aria-label={t('language.switchLabel')}>
+		<ul>
+			{
+				locales.map((l) => (
+					<li>
+						<a
+							href={getRelativeLocaleUrl(l, path)}
+							hreflang={l}
+							lang={l}
+							aria-current={l === locale ? 'true' : undefined}
+						>
+							{languageName(l)}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>

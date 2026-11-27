@@ -1,0 +1,35 @@
+# Apache settings for Hostinger, copied from Website-telbin.dev.
+# EES-107 adds "ErrorDocument 404 /404.html" together with the 404 page.
+
+# Send www.eestiilm.app to the canonical https://eestiilm.app (same path and query string)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.eestiilm\.app$ [NC]
+  RewriteRule ^ https://eestiilm.app%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # HSTS: every .app domain is HTTPS-only through the browsers' preload list, so this changes
+  # nothing for browsers that ship it. Kept as a cautious 1-day value, as on telbin.dev.
+  Header always set Strict-Transport-Security "max-age=86400"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  # Content-Security-Policy, part 1 of 2. Astro adds part 2 (default-src, script/style hashes, img-src...)
+  # as a <meta> tag on every page; see security.csp in astro.config.mjs. Browsers enforce both.
+  # Never add default-src, script-src or style-src here: a header can't carry the per-build hashes,
+  # so it would block the site's inline scripts and styles.
+  Header always set Content-Security-Policy "frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  # HTML pages keep the same URL across deploys: make browsers check for a newer version on every
+  # visit (a cheap 304 when nothing changed) instead of showing a stale page that points at deleted
+  # /_astro/ files. Never matches /_astro/ files.
+  <FilesMatch "\.(html|xml)$">
+    Header always set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # Astro's /_astro/ files have content hashes in their names, so they never change: cache for a year.
+  <If "%{REQUEST_URI} =~ m#^/_astro/#">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>

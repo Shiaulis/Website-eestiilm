@@ -1,0 +1,7 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  // Tests run directly in Node (`npm test`), which has its own types for node:test.
+  // The project has no @types/node, so `astro check` skips them.
+  "exclude": ["dist", "**/*.test.ts"]
+}
