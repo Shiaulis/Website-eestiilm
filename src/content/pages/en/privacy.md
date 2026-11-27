@@ -35,9 +35,9 @@ Nothing goes to the developer: the app has no server of its own.
 
 ## Analytics and crashes
 
-If you choose to share analytics with app developers, Apple sends the developer crash reports and usage statistics, such as how many devices use the app. Apple makes this data anonymous before the developer sees it, and the developer uses it only to find and fix problems in the app.
+Apple sends the developer crash reports and usage statistics, such as how many devices use the app, only if you choose to share your iPhone analytics. Apple makes this data anonymous before the developer sees it, and the developer uses it only to find and fix problems in the app.
 
-You decide whether to share it. On your iPhone, go to Settings › Privacy & Security › Analytics & Improvements, and turn Share With App Developers on or off.
+You decide whether to share it. On your iPhone, go to Settings › Privacy & Security › Analytics & Improvements. In the EU, one switch, Share iPhone & Watch Analytics, covers sharing with both Apple and app developers; in some other regions, there is also a separate Share With App Developers switch.
 
 ## Location
 
