@@ -12,7 +12,7 @@
     "message": "Lähtekood GitHub-is"
   },
   "footer_data_credit": {
-    "message": ""
+    "message": "Ilmaprognoosi andmed pärinevad Keskkonnaagentuurilt ({link}). Eesti Ilm on sõltumatu rakendus ega ole seotud nimetatud asutusega."
   },
   "language_switch_label": {
     "message": "Keel"
@@ -27,15 +27,27 @@
     "message": "Mine avalehele"
   },
   "site_description": {
-    "message": ""
+    "message": "Eesti Ilm on iOSi ilmarakendus Eesti jaoks."
   },
   "site_share_image_alt": {
+    "message": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app"
+  },
+  "page_last_updated": {
+    "message": ""
+  },
+  "page_on_this_page": {
+    "message": ""
+  },
+  "page_summary_link": {
+    "message": ""
+  },
+  "page_summary_title": {
     "message": ""
   },
   "placeholder_home": {
-    "message": ""
+    "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi."
   },
   "placeholder_page": {
-    "message": ""
+    "message": "Käesolev lehekülg on loomisel. Tule peagi tagasi."
   }
 }
