@@ -21,9 +21,12 @@ The owner is an iOS developer, not primarily a web developer. On every web chang
 
 - `src/pages/`: one file per URL. English pages sit at the root, Estonian pages under `src/pages/et/`.
 - `src/views/`: page bodies shared by the English and Estonian route files.
-- `src/layouts/BaseLayout.astro`: `<head>` (title, description, canonical, `hreflang`, `color-scheme`), header with the language switch, footer.
+- `src/layouts/BaseLayout.astro`: `<head>` (title, description, canonical, `hreflang`, `color-scheme`, icons, Open Graph and Twitter card tags), header, horizon line and footer.
+- `src/components/`: the header (icon, wordmark, page links, EN / ET switch) and the footer (links, data credit, copyright).
 - `src/i18n/`: UI strings (`en.json`, `et.json`) and the `useTranslations(locale)` helper.
-- `src/site.ts`: untranslated constants (app name, site URL, GitHub link).
+- `src/site.ts`: untranslated constants (app name, site URL, GitHub link, data source link).
+- `src/styles/global.css`: palette, font and base styles shared by every page.
+- `public/`: static files served as they are: icons, share image, `fonts/` and `.htaccess`.
 - `public/.htaccess`: Apache settings on Hostinger (www redirect, security headers, caching).
 
 ## Pages
@@ -53,7 +56,12 @@ Do not rename or move these URLs: they are stored in App Store Connect and in th
 
 ## Design
 
-The site follows the Website section of the design book in Shiaulis/Eesti-Ilm (`ReleaseRelatedInfo/DesignBook`). Until EES-113 lands it has no custom colours, fonts, icons or images: browser default styles and minimal layout CSS only.
+Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.html#website` in Shiaulis/Eesti-Ilm, on `master`. It is the source of truth for the look; don't invent colours, fonts, icons or components it doesn't define.
+
+- Colours are the Loojang palette, as CSS variables in `src/styles/global.css`, with light and dark values that follow the system setting. Text pairs must pass WCAG AA (4.5 : 1) in both modes.
+- Headings and the "Eesti Ilm" wordmark use Nunito ExtraBold (800), self-hosted from `public/fonts/` with its OFL licence next to it. It is the only web font; body text uses the system font. Never load fonts or other files from a third party.
+- Shared base styles (headings, text, links, lists, the `.container` width and the `.prose` column for long text) are in `src/styles/global.css`; page-specific layouts live with their pages.
+- Icons and the share image are static files in `public/`, generated once from the design book's icon assets: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png` and the header icons in `public/images/`.
 
 ## Localization
 

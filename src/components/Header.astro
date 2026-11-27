@@ -6,26 +6,164 @@ import { SITE_NAME } from '../site';
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const path = pathWithoutLocale(Astro.url.pathname);
+
+// Text links in the header; on phones they are hidden, because the footer has them too.
+const pageLinks = [
+	{ path: '/support/', label: t('nav.support') },
+	{ path: '/privacy/', label: t('nav.privacy') },
+];
 ---
 
-<header>
-	<p><a href={getRelativeLocaleUrl(locale, '/')}>{SITE_NAME}</a></p>
-	<nav aria-label={t('language.switchLabel')}>
-		<ul>
-			{
-				locales.map((l) => (
-					<li>
-						<a
-							href={getRelativeLocaleUrl(l, path)}
-							hreflang={l}
-							lang={l}
-							aria-current={l === locale ? 'true' : undefined}
-						>
-							{languageName(l)}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</nav>
-</header>
+<div class="container">
+	<header>
+		<a class="wordmark" href={getRelativeLocaleUrl(locale, '/')}>
+			<picture>
+				<source srcset="/images/app-icon-dark.png" media="(prefers-color-scheme: dark)" />
+				<img src="/images/app-icon.png" alt="" width="32" height="32" />
+			</picture>
+			{SITE_NAME}
+		</a>
+		<div class="links">
+			<nav class="pages">
+				<ul>
+					{
+						pageLinks.map((link) => (
+							<li>
+								<a
+									href={getRelativeLocaleUrl(locale, link.path)}
+									aria-current={link.path === path ? 'page' : undefined}
+								>
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<nav class="language" aria-label={t('language.switchLabel')}>
+				<ul>
+					{
+						locales.map((l) => (
+							<li>
+								<a
+									href={getRelativeLocaleUrl(l, path)}
+									hreflang={l}
+									lang={l}
+									title={languageName(l)}
+									aria-current={l === locale ? 'true' : undefined}
+								>
+									{l.toUpperCase()}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</div>
+	</header>
+</div>
+
+<style>
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		min-height: 76px;
+		border-bottom: 1px solid var(--color-separator);
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0;
+	}
+
+	/* The icon and "Eesti Ilm" in Nunito, links to the home page. */
+	.wordmark {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: var(--color-text);
+		font-family: var(--font-heading);
+		font-size: 1.1875rem; /* 19px */
+		font-weight: 800;
+		text-decoration: none;
+	}
+
+	.wordmark img {
+		display: block;
+		width: 32px;
+		height: 32px;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 26px;
+		font-size: 0.9375rem; /* 15px */
+	}
+
+	/* Navigation links: Text colour, underlined on hover. The current page is Accent and semibold. */
+	.pages ul {
+		gap: 26px;
+	}
+
+	.pages a {
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.pages a:hover {
+		text-decoration: underline 1px;
+	}
+
+	.pages a[aria-current='page'] {
+		color: var(--color-accent);
+		font-weight: 600;
+	}
+
+	/* The EN / ET switch: a pill, with the active language filled in the Text colour. */
+	.language ul {
+		padding: 2px;
+		border: 1px solid var(--color-separator);
+		border-radius: 999px;
+		background: var(--color-card);
+		line-height: 1.5;
+	}
+
+	.language a {
+		display: block;
+		padding: 3px 11px;
+		border-radius: 999px;
+		color: var(--color-secondary-text);
+		font-size: 0.8125rem; /* 13px */
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.language a:hover {
+		color: var(--color-text);
+	}
+
+	.language a[aria-current] {
+		background: var(--color-text);
+		color: var(--color-background);
+	}
+
+	@media (max-width: 40em) {
+		header {
+			min-height: 64px;
+		}
+
+		.pages {
+			display: none;
+		}
+	}
+</style>

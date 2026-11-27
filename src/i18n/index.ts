@@ -2,6 +2,8 @@ import en from './en.json' with { type: 'json' };
 import et from './et.json' with { type: 'json' };
 import { createTranslator, type Messages, type MessageKey } from './translate.ts';
 
+export { splitAtPlaceholder } from './translate.ts';
+
 // Keep in sync with i18n.locales in astro.config.mjs. English is the default and has no URL prefix.
 export const locales = ['en', 'et'] as const;
 export type Locale = (typeof locales)[number];
