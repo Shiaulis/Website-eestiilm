@@ -80,6 +80,8 @@ test('does not split text without exactly one placeholder', () => {
 test('the English placeholders appear exactly once', () => {
 	assert.ok(splitAtPlaceholder(en.footer_data_credit.message, 'link'));
 	assert.ok(splitAtPlaceholder(en.page_last_updated.message, 'date'));
+	assert.ok(splitAtPlaceholder(en.support_email_body.message, 'link'));
+	assert.ok(splitAtPlaceholder(en.support_issue_body.message, 'link'));
 });
 
 test('page text is looked up in the page locale first, then in English', () => {
