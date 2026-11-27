@@ -63,8 +63,32 @@
     "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi.",
     "description": ""
   },
-  "placeholder_page": {
-    "message": "Käesolev lehekülg on loomisel. Tule peagi tagasi.",
+  "support_lead": {
+    "message": "",
+    "description": ""
+  },
+  "support_email_title": {
+    "message": "",
+    "description": ""
+  },
+  "support_email_body": {
+    "message": "",
+    "description": ""
+  },
+  "support_email_subject": {
+    "message": "",
+    "description": ""
+  },
+  "support_issue_title": {
+    "message": "",
+    "description": ""
+  },
+  "support_issue_body": {
+    "message": "",
+    "description": ""
+  },
+  "support_issue_link": {
+    "message": "",
     "description": ""
   }
 }
