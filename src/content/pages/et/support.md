@@ -1,25 +1,25 @@
 ---
-title: Support
-description: Get help with Eesti Ilm, contact the developer, report bugs, or join the TestFlight beta.
+title: Tugi
+description: Saa abi Eesti Ilma kohta, võta arendajaga ühendust, teata vigadest või liitu TestFlighti beetaversiooniga.
 ---
 
-## Contact
+## Kontakt
 
-For questions, feedback, or help with the app, write to [support@eestiilm.app](mailto:support@eestiilm.app?subject=Eesti%20Ilm%20support). I usually reply within a few days.
+Küsimuste, tagasiside või rakendusega seotud abi saamiseks kirjuta aadressile [support@eestiilm.app](mailto:support@eestiilm.app?subject=Eesti%20Ilm%20tugi). Tavaliselt vastan mõne päeva jooksul.
 
-When you write, it helps to include:
+Kui kirjutad, on abi järgmiste andmete lisamisest:
 
-- the app version (shown in iOS Settings › Eesti Ilm)
-- your device model
-- your iOS version
-- a screenshot if something looks wrong
+- rakenduse versioon (kuvatakse iOS-i seadetes: Settings › Eesti Ilm)
+- sinu seadme mudel
+- sinu iOS-i versioon
+- ekraanipilt, kui miski paistab valesti
 
-## Bugs and ideas
+## Vead ja ideed
 
-If you prefer GitHub, you can report bugs or share ideas on [GitHub Issues](https://github.com/Shiaulis/Eesti-Ilm/issues).
+Kui eelistad GitHubi, saad vigadest teatada või ideid jagada lehel [GitHub Issues](https://github.com/Shiaulis/Eesti-Ilm/issues).
 
-While Eesti Ilm is not on the App Store yet, you can try new versions early through the [TestFlight public beta](https://testflight.apple.com/join/xlLG9DS9).
+Kuni Eesti Ilm ei ole veel App Store'is saadaval, saad uusi versioone varakult proovida [TestFlighti avaliku beetaversiooni](https://testflight.apple.com/join/xlLG9DS9) kaudu.
 
-## Links
+## Lingid
 
-- [Privacy policy](/privacy/) — how Eesti Ilm and eestiilm.app handle data.
+- [Privaatsuspoliitika](/et/privacy/) — kuidas Eesti Ilm ja eestiilm.app andmeid käsitlevad.
