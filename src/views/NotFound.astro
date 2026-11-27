@@ -13,8 +13,12 @@ const t = useTranslations(locale);
 
 <BaseLayout title={t('notFound.title')} description={t('notFound.body')} notFound>
 	<div class="not-found">
-		<!-- The cloud from the app icon (one path, as in the design book), in the Cloud colour. -->
-		<svg viewBox="12 44 76 40" aria-hidden="true" focusable="false">
+		<!--
+			The cloud from the app icon (one path, as in the design book), in the Cloud colour.
+			The book's mockup uses viewBox="12 44 76 40", which cuts off the top of the cloud (it
+			starts at y 37.6); this viewBox keeps the same width and shows the whole cloud.
+		-->
+		<svg viewBox="12 37 76 41" aria-hidden="true" focusable="false">
 			<path
 				transform="translate(12.56 41.72) scale(1.364)"
 				d="M14.000 26.000 A10.0 10.0 0 0 1 13.943 6.000 A2.5 2.5 0 0 0 16.198 4.549 A13.0 13.0 0 0 1 40.448 6.252 A2.5 2.5 0 0 0 42.659 8.024 A9.0 9.0 0 0 1 42.000 26.000 Z"
