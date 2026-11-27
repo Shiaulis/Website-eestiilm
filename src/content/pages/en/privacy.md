@@ -35,9 +35,9 @@ Nothing goes to the developer: the app has no server of its own.
 
 ## Analytics and crashes
 
-If you choose to share analytics with app developers, Apple sends the developer crash reports and usage statistics, such as how many devices use the app. Apple makes this data anonymous before the developer sees it, and the developer uses it only to find and fix problems in the app.
+Apple sends the developer crash reports and usage statistics, such as how many devices use the app, only if you choose to share your iPhone analytics. Apple makes this data anonymous before the developer sees it, and the developer uses it only to find and fix problems in the app.
 
-You decide whether to share it. On your iPhone, go to Settings › Privacy & Security › Analytics & Improvements, and turn Share With App Developers on or off.
+You decide whether to share it. On your iPhone, go to Settings › Privacy & Security › Analytics & Improvements. In the EU, one switch, Share iPhone Analytics (Share iPhone & Watch Analytics with a paired Apple Watch), covers sharing with both Apple and app developers; in some other regions, there is also a separate Share With App Developers switch.
 
 ## Location
 
@@ -64,6 +64,8 @@ To use your rights, write to [support@eestiilm.app](mailto:support@eestiilm.app)
 ## Changes
 
 When this policy changes, the new version is published on this page, and the "Last updated" date at the top changes with it.
+
+This policy is published in English and Estonian. If the two versions differ, the English version applies.
 
 ## Contact
 
