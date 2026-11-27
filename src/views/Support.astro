@@ -1,0 +1,180 @@
+---
+// The support page, shared by /support/ and /et/support/. The sections below the contact cards
+// come from Markdown in src/content/pages/<locale>/support.md. Layout from the design book:
+// a 760px column with a lead line, two contact cards ("Email" and "Report a problem"), and the
+// support sections underneath.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocale, splitAtPlaceholder, useTranslations } from '../i18n';
+import { getPage } from '../i18n/pages';
+import { GITHUB_ISSUES_URL, SUPPORT_EMAIL } from '../site';
+
+const locale = getLocale(Astro.currentLocale);
+const page = await getPage('support', locale);
+const { title, description } = page.entry.data;
+const { Content } = page.rendered;
+
+// Labels around the Markdown text follow the language of the text, so an English fallback page
+// doesn't mix Estonian labels into English text.
+const t = useTranslations(page.locale);
+const textLang = page.locale === locale ? undefined : page.locale;
+
+const mailtoHref = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(t('support_email_subject'))}`;
+const emailParts = splitAtPlaceholder(t('support_email_body'), 'link');
+const issueParts = splitAtPlaceholder(t('support_issue_body'), 'link');
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="support" lang={textLang}>
+		<h1>{title}</h1>
+		<p class="lead">{t('support_lead')}</p>
+
+		<div class="contact">
+			<article class="card">
+				<div class="icon" aria-hidden="true">
+					<svg
+						width="22"
+						height="22"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						focusable="false"
+					>
+						<rect x="3" y="5" width="18" height="14" rx="3"></rect>
+						<path d="M4 7l8 6 8-6"></path>
+					</svg>
+				</div>
+				<h2 class="card-title">{t('support_email_title')}</h2>
+				<p class="card-text">
+					{
+						emailParts ? (
+							<>
+								{emailParts[0]}
+								<a href={mailtoHref}>{SUPPORT_EMAIL}</a>
+								{emailParts[1]}
+							</>
+						) : (
+							<a href={mailtoHref}>{SUPPORT_EMAIL}</a>
+						)
+					}
+				</p>
+			</article>
+
+			<article class="card">
+				<div class="icon" aria-hidden="true">
+					<svg
+						width="22"
+						height="22"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						focusable="false"
+					>
+						<circle cx="12" cy="12" r="9"></circle>
+						<path d="M12 8v5M12 16.5v.01"></path>
+					</svg>
+				</div>
+				<h2 class="card-title">{t('support_issue_title')}</h2>
+				<p class="card-text">
+					{
+						issueParts ? (
+							<>
+								{issueParts[0]}
+								<a href={GITHUB_ISSUES_URL}>{t('support_issue_link')}</a>
+								{issueParts[1]}
+							</>
+						) : (
+							<a href={GITHUB_ISSUES_URL}>{t('support_issue_link')}</a>
+						)
+					}
+				</p>
+			</article>
+		</div>
+
+		<div class="prose support-body">
+			<Content />
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	/* Design book: 760px centred column; footer sits 64px below on desktop (56px from Footer). */
+	.support {
+		max-width: 47.5rem; /* 760px */
+		margin-inline: auto;
+		padding-bottom: 8px;
+	}
+
+	.lead {
+		margin: 0 0 36px;
+		color: var(--color-secondary-text);
+		font-size: 1.1875rem; /* 19px */
+	}
+
+	.contact {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.card {
+		padding: 22px 24px;
+		border: 1px solid var(--color-separator);
+		border-radius: 20px;
+		background: var(--color-card);
+	}
+
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		margin-bottom: 12px;
+		border-radius: 12px;
+		background: var(--color-background);
+		color: var(--color-accent);
+	}
+
+	.card-title {
+		margin: 0 0 4px;
+		font-size: 1.1875rem; /* 19px */
+		line-height: 1.25;
+		letter-spacing: 0;
+	}
+
+	.card-text {
+		margin: 0;
+		color: var(--color-secondary-text);
+		overflow-wrap: break-word;
+	}
+
+	/* First section heading sits 64px below the contact cards on desktop, 44px on phone. */
+	.support-body :global(h2:first-child) {
+		margin-top: 64px;
+	}
+
+	@media (max-width: 40em) {
+		.support {
+			padding-bottom: 0;
+		}
+
+		.lead {
+			font-size: 1.0625rem; /* 17px */
+		}
+
+		.contact {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 12px;
+		}
+
+		.support-body :global(h2:first-child) {
+			margin-top: 44px;
+		}
+	}
+</style>

@@ -47,7 +47,25 @@
   "placeholder_home": {
     "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi."
   },
-  "placeholder_page": {
-    "message": "Käesolev lehekülg on loomisel. Tule peagi tagasi."
+  "support_lead": {
+    "message": "Kas sul on küsimusi Eesti Ilma kohta või ei tööta miski ootuspäraselt? Võta allpool ühendust."
+  },
+  "support_email_title": {
+    "message": "E-post"
+  },
+  "support_email_body": {
+    "message": "Kirjuta aadressile {link}."
+  },
+  "support_email_subject": {
+    "message": "Eesti Ilm tugi"
+  },
+  "support_issue_title": {
+    "message": "Teata probleemist"
+  },
+  "support_issue_body": {
+    "message": "Ava teade {link}."
+  },
+  "support_issue_link": {
+    "message": "GitHubis"
   }
 }

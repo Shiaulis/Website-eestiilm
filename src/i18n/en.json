@@ -9,7 +9,7 @@
   },
   "nav_support": {
     "message": "Support",
-    "description": "Link to the support page (contact and frequently asked questions), in the header (wide screens only) and in the footer of every page. Until the support page has its own text, also its heading and browser tab title. One or two words."
+    "description": "Link to the support page (contact and reporting issues), in the header (wide screens only) and in the footer of every page. One or two words."
   },
   "footer_source_code": {
     "message": "Source code on GitHub",
@@ -63,8 +63,32 @@
     "message": "The website for the app is being built. Check back soon.",
     "description": "Temporary text on the home page while the website is being built, under the app's description. It goes away when the real home page is ready."
   },
-  "placeholder_page": {
-    "message": "This page is being written. Check back soon.",
-    "description": "Temporary text under the heading of a page whose text isn't ready yet (today the support page). It goes away when the page has its text."
+  "support_lead": {
+    "message": "Questions about Eesti Ilm, or something not working? Get in touch below.",
+    "description": "Short intro line directly under the \"Support\" heading on the support page. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
+  },
+  "support_email_title": {
+    "message": "Email",
+    "description": "Heading of the first contact card on the support page, for contacting the developer by email. One or two words."
+  },
+  "support_email_body": {
+    "message": "Write to {link}.",
+    "description": "Short line inside the Email card on the support page. {link} becomes the clickable email address \"support@eestiilm.app\". Keep {link} exactly once and don't translate it."
+  },
+  "support_email_subject": {
+    "message": "Eesti Ilm support",
+    "description": "Prefilled email subject when someone clicks the support@eestiilm.app link on the support page. \"Eesti Ilm\" is the app's name: keep it as it is. Two to four words."
+  },
+  "support_issue_title": {
+    "message": "Report a problem",
+    "description": "Heading of the second contact card on the support page, for reporting bugs or ideas on GitHub. Short phrase matching the concise style of support_email_title (\"Email\")."
+  },
+  "support_issue_body": {
+    "message": "Open an issue {link}.",
+    "description": "Short line inside the \"Report a problem\" card on the support page. {link} becomes the text of support_issue_link (\"on GitHub\"), linking to GitHub Issues. Keep {link} exactly once and don't translate it; translate support_issue_link so both read smoothly together."
+  },
+  "support_issue_link": {
+    "message": "on GitHub",
+    "description": "Link text inserted into {link} in support_issue_body (\"Open an issue {link}.\"), linking to the app's GitHub Issues page. \"GitHub\" is a product name: keep it as it is. Match the grammar of support_issue_body."
   }
 }
