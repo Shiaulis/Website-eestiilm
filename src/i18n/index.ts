@@ -43,3 +43,12 @@ export function pathWithoutLocale(pathname: string): string {
 	}
 	return pathname;
 }
+
+/**
+ * The locales to try, in order, for a page's text in `locale`: the locale itself, then English.
+ * A Markdown page arrives from Crowdin only once it is fully translated, so until then the
+ * Estonian URL shows the English text.
+ */
+export function contentLocales(locale: Locale): Locale[] {
+	return locale === defaultLocale ? [locale] : [locale, defaultLocale];
+}

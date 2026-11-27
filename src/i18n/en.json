@@ -20,6 +20,12 @@
     "description": "Eesti Ilm is an iOS weather app for Estonia.",
     "shareImageAlt": "The Eesti Ilm app icon, the name Eesti Ilm and the address eestiilm.app"
   },
+  "page": {
+    "lastUpdated": "Last updated {date}",
+    "onThisPage": "On this page",
+    "summaryLink": "Summary",
+    "summaryTitle": "In short"
+  },
   "placeholder": {
     "home": "The website for the app is being built. Check back soon.",
     "page": "This page is being written. Check back soon."

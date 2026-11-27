@@ -1,0 +1,172 @@
+---
+// The privacy policy, shared by /privacy/ and /et/privacy/. The text is Markdown in
+// src/content/pages/<locale>/privacy.md; the Estonian page shows English until Crowdin delivers
+// the Estonian file. Layout from the design book: a 680px text column with a "Last updated" line
+// and a summary card, and an "On this page" list on the left on wide screens.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocale, splitAtPlaceholder, useTranslations } from '../i18n';
+import { getPage } from '../i18n/pages';
+
+const locale = getLocale(Astro.currentLocale);
+const page = await getPage('privacy', locale);
+const { title, description, updated, summary } = page.entry.data;
+const { Content, headings } = page.rendered;
+
+// Labels inside the article follow the language of the text, so an English fallback page
+// doesn't mix Estonian labels into English text. The article gets that `lang` too.
+const t = useTranslations(page.locale);
+const textLang = page.locale === locale ? undefined : page.locale;
+
+const sections = headings.filter((heading) => heading.depth === 2);
+
+// "Last updated {date}": the date is formatted for the text's language, as a <time> element.
+const lastUpdated = t('page.lastUpdated');
+const lastUpdatedParts = splitAtPlaceholder(lastUpdated, 'date');
+const updatedText =
+	updated && new Intl.DateTimeFormat(page.locale, { dateStyle: 'long', timeZone: 'UTC' }).format(updated);
+const updatedISO = updated?.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="legal" lang={textLang}>
+		<nav class="toc" aria-labelledby="toc-title">
+			<p id="toc-title">{t('page.onThisPage')}</p>
+			<ol>
+				{summary && <li><a href="#summary">{t('page.summaryLink')}</a></li>}
+				{sections.map((section) => <li><a href={`#${section.slug}`}>{section.text}</a></li>)}
+			</ol>
+		</nav>
+		<article class="prose">
+			<h1>{title}</h1>
+			{
+				updated && (
+					<p class="updated">
+						{lastUpdatedParts ? (
+							<>
+								{lastUpdatedParts[0]}
+								<time datetime={updatedISO}>{updatedText}</time>
+								{lastUpdatedParts[1]}
+							</>
+						) : (
+							<time datetime={updatedISO}>{updatedText}</time>
+						)}
+					</p>
+				)
+			}
+			{
+				summary && (
+					<section class="summary" id="summary" aria-labelledby="summary-title">
+						<h2 id="summary-title">{t('page.summaryTitle')}</h2>
+						<ul>
+							{summary.map((point) => <li>{point}</li>)}
+						</ul>
+					</section>
+				)
+			}
+			<Content />
+		</article>
+	</div>
+</BaseLayout>
+
+<style>
+	/* Desktop: the "On this page" list (220px), 72px of space, then the 680px text column. */
+	.legal {
+		display: grid;
+		grid-template-columns: 220px minmax(0, 42.5rem);
+		column-gap: 72px;
+		justify-content: center;
+		/* The footer sits 80px below the text (the footer itself adds 56px). */
+		padding-bottom: 24px;
+	}
+
+	.toc {
+		padding-top: 8px;
+		font-size: 0.875rem; /* 14px */
+	}
+
+	.toc p {
+		margin: 0 0 12px;
+		color: var(--color-secondary-text);
+		font-size: 0.75rem; /* 12px */
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.toc ol {
+		display: flex;
+		flex-direction: column;
+		gap: 9px;
+		margin: 0;
+		padding: 0 0 0 14px;
+		border-left: 1px solid var(--color-separator);
+		list-style: none;
+	}
+
+	.toc li {
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	/* Navigation links: Secondary text, underlined on hover. */
+	.toc a {
+		color: var(--color-secondary-text);
+		text-decoration: none;
+	}
+
+	.toc a:hover {
+		text-decoration: underline 1px;
+	}
+
+	h1 {
+		margin-bottom: 10px;
+	}
+
+	.updated {
+		margin: 0 0 32px;
+		color: var(--color-secondary-text);
+		font-size: 0.9375rem; /* 15px */
+	}
+
+	/* The summary card: Card colour, hairline border, 20px corners. */
+	.summary {
+		margin: 0 0 8px;
+		padding: 22px 24px;
+		border: 1px solid var(--color-separator);
+		border-radius: 20px;
+		background: var(--color-card);
+	}
+
+	/* "In short" is a heading for screen readers, styled as the card's bold first line. */
+	.summary h2 {
+		margin: 0 0 6px;
+		font-family: var(--font-body);
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.6;
+		letter-spacing: 0;
+	}
+
+	.summary ul {
+		margin: 0;
+		padding-left: 20px;
+		color: var(--color-secondary-text);
+	}
+
+	/* Below 1024px the list doesn't fit next to the text: hide it, as on phone. */
+	@media (max-width: 64em) {
+		.legal {
+			grid-template-columns: minmax(0, 42.5rem);
+		}
+
+		.toc {
+			display: none;
+		}
+	}
+
+	@media (max-width: 40em) {
+		.legal {
+			padding-bottom: 4px;
+		}
+	}
+</style>

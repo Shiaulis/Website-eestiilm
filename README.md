@@ -16,7 +16,7 @@ npm test         # unit tests
 npm run build    # static site in dist/
 ```
 
-English text lives in `src/i18n/en.json`. Estonian is translated in Crowdin and arrives as pull requests. See [AGENTS.md](AGENTS.md) for the project's setup and rules.
+English text lives in `src/i18n/en.json` (UI strings) and `src/content/pages/en/` (page text in Markdown). Estonian is translated in Crowdin and arrives as pull requests. See [AGENTS.md](AGENTS.md) for the project's setup and rules.
 
 ## Deploy
 

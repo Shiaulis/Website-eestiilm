@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createTranslator, lookup, splitAtPlaceholder, type Messages } from './translate.ts';
-import { locales, pathWithoutLocale, useTranslations } from './index.ts';
+import { contentLocales, locales, pathWithoutLocale, useTranslations } from './index.ts';
 import en from './en.json' with { type: 'json' };
 
 const source: Messages = { nav: { home: 'Home', privacy: 'Privacy policy' }, footer: { year: 'Year' } };
@@ -64,4 +64,9 @@ test('does not split text without exactly one placeholder', () => {
 
 test('the English footer credit has its link placeholder', () => {
 	assert.ok(splitAtPlaceholder(en.footer.dataCredit, 'link'));
+});
+
+test('page text is looked up in the page locale first, then in English', () => {
+	assert.deepEqual(contentLocales('en'), ['en']);
+	assert.deepEqual(contentLocales('et'), ['et', 'en']);
 });

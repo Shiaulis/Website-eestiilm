@@ -16,6 +16,11 @@ append_commit_message: false
 
 files:
   # UI strings shared by every page: navigation, footer, language switch, 404.
-  # Page text (privacy policy, support, landing) gets its own entry when those pages are added.
   - source: /src/i18n/en.json
     translation: /src/i18n/%two_letters_code%.json
+  # Page text (privacy policy, support, landing): one Markdown file per page. Crowdin can't skip
+  # untranslated strings in Markdown, so an Estonian page is exported only once it is fully
+  # translated. Until then the Estonian URL shows the English text.
+  - source: /src/content/pages/en/*.md
+    translation: /src/content/pages/%two_letters_code%/%original_file_name%
+    skip_untranslated_files: true
