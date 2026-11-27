@@ -37,11 +37,59 @@
   },
   "site_description": {
     "message": "Eesti Ilm is an iOS weather app for Estonia.",
-    "description": "One-sentence description of the app. Shown on the home page under the app name, and the description in search results and link previews for pages that have none of their own. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\" is the app's name and \"iOS\" is Apple's system: keep both as they are."
+    "description": "One-sentence description of the app, used in search results and link previews for pages that have none of their own. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\" is the app's name and \"iOS\" is Apple's system: keep both as they are."
   },
   "site_share_image_alt": {
     "message": "The Eesti Ilm app icon, the name Eesti Ilm and the address eestiilm.app",
     "description": "Alt text of the image in link previews, when someone shares a link to the site in Messages, Slack or on social sites. Screen readers read it. It describes what the image shows: the app icon, the name \"Eesti Ilm\" and the address \"eestiilm.app\". Keep the name and the address as they are."
+  },
+  "home_description": {
+    "message": "Eesti Ilm is a calm, private iOS weather app for Estonia with forecasts from ilmateenistus.ee and Home Screen widgets.",
+    "description": "Description of the home page in search results and link previews. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\", \"iOS\" and \"ilmateenistus.ee\" stay as they are."
+  },
+  "home_eyebrow": {
+    "message": "iPhone weather app for Estonia",
+    "description": "Small uppercase line above the main heading in the hero on the home page. Three to six words."
+  },
+  "home_title": {
+    "message": "The Estonian forecast, calm and clear.",
+    "description": "Main heading (H1) in the hero on the home page, directly below home_eyebrow. A short, calm pitch in one sentence or phrase."
+  },
+  "home_pitch": {
+    "message": "Eesti Ilm shows the forecast for places across Estonia in a simple, warm app. Few elements, easy to read, in English and Estonian.",
+    "description": "Short paragraph in the hero on the home page, directly under home_title. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
+  },
+  "home_cta_testflight": {
+    "message": "Try the beta on TestFlight",
+    "description": "Quiet text link under the hero paragraph on the home page, linking to the public TestFlight beta. Keep wording neutral: do not mention the App Store or why the app is on TestFlight. \"TestFlight\" is Apple's product name: keep it as it is. A few words."
+  },
+  "home_features_label": {
+    "message": "Features",
+    "description": "Accessible label for the three-column features section on the home page, read out by screen readers and not shown on screen. One word."
+  },
+  "home_feature_forecast_title": {
+    "message": "Estonian forecasts",
+    "description": "Heading of the first feature column on the home page, above a sample cold/warm temperature display. Two or three words. Do not imply the app is official."
+  },
+  "home_feature_forecast_body": {
+    "message": "Forecasts from the Estonian Environment Agency ({link}). Below zero in blue, zero and above in warm red, always with the minus sign.",
+    "description": "Text in the first feature column on the home page, explaining the data source and the cold/warm temperature colours shown above it. {link} becomes a link to the agency's weather site, with the text \"ilmateenistus.ee\". Keep {link} exactly once and don't translate it. Do not imply the app is official or affiliated with the agency."
+  },
+  "home_feature_widgets_title": {
+    "message": "Home Screen widgets",
+    "description": "Heading of the second feature column on the home page. Use the platform's usual term for the iPhone Home Screen. Two or three words."
+  },
+  "home_feature_widgets_body": {
+    "message": "Check the weather at a glance with small and medium widgets on your Home Screen, without opening the app.",
+    "description": "Text in the second feature column on the home page, describing the small and medium Home Screen widgets. One sentence."
+  },
+  "home_feature_privacy_title": {
+    "message": "Private by design",
+    "description": "Heading of the third feature column on the home page. Two or three words."
+  },
+  "home_feature_privacy_body": {
+    "message": "No account, no ads, and no data collection. Eesti Ilm never tracks you or asks for your location.",
+    "description": "Text in the third feature column on the home page, matching the privacy policy. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
   },
   "page_last_updated": {
     "message": "Last updated {date}",
@@ -58,10 +106,6 @@
   "page_summary_title": {
     "message": "In short",
     "description": "Heading of the summary card at the top of the privacy policy, which lists the main points in a few bullets. The \"On this page\" list links to the same card as page_summary_link (\"Summary\"): \"Summary\" and \"In short\" name the same card. A few words."
-  },
-  "placeholder_home": {
-    "message": "The website for the app is being built. Check back soon.",
-    "description": "Temporary text on the home page while the website is being built, under the app's description. It goes away when the real home page is ready."
   },
   "support_lead": {
     "message": "Questions about Eesti Ilm, or something not working? Get in touch below.",

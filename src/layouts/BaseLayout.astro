@@ -10,6 +10,10 @@ interface Props {
 	/** Page title without the site name; omit on the home page. */
 	title?: string;
 	description?: string;
+	/** Shows the dusk horizon line directly under the header. Home puts it under the hero instead. */
+	showHeaderHorizon?: boolean;
+	/** Wraps <main> in the centred .container column. Set false when a page needs full-bleed bands. */
+	contained?: boolean;
 	/** Keeps the page out of search results (placeholders, 404). */
 	noindex?: boolean;
 	/**
@@ -22,7 +26,13 @@ interface Props {
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
-const { title, description = t('site_description'), notFound = false } = Astro.props;
+const {
+	title,
+	description = t('site_description'),
+	showHeaderHorizon = true,
+	contained = true,
+	notFound = false,
+} = Astro.props;
 const noindex = notFound || (Astro.props.noindex ?? false);
 
 const pageTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
@@ -82,8 +92,8 @@ const ogLocales: Record<typeof locale, string> = { en: 'en_US', et: 'et_EE' };
 	</head>
 	<body>
 		<Header languageSwitchPath={notFound ? '/' : undefined} />
-		<div class="horizon"></div>
-		<main class="container">
+		{showHeaderHorizon && <div class="horizon" aria-hidden="true" />}
+		<main class={contained ? 'container' : undefined}>
 			<slot />
 		</main>
 		<Footer />

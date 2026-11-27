@@ -27,6 +27,9 @@
 	--color-accent: #b0452c;
 	/* Text on Accent (buttons). Not a palette colour of its own: Card in light, Background in dark. */
 	--color-on-accent: var(--color-card);
+	/* Temperatures below 0° (Cold) and 0° and above (Warm). */
+	--color-cold: #3d5a80;
+	--color-warm: #b0452c;
 	/* The cloud of the app icon, on the 404 page. Non-text, never used for text. */
 	--color-cloud: #8e8699;
 
@@ -51,6 +54,8 @@
 		--color-separator: #2e2738;
 		--color-accent: #f2936f;
 		--color-on-accent: var(--color-background);
+		--color-cold: #9db6d8;
+		--color-warm: #f2936f;
 		--color-cloud: #9a92a6;
 	}
 }
@@ -105,7 +110,7 @@ main {
 	padding-inline: var(--gutter);
 }
 
-/* The 4px dusk horizon line under the header. The only gradient in the page layout. */
+/* The 4px dusk horizon line (under the header, or under the hero on the home page). The only gradient in the page layout. */
 .horizon {
 	height: 4px;
 	background: linear-gradient(90deg, var(--dusk-start), var(--dusk-end));

@@ -32,6 +32,42 @@
   "site_share_image_alt": {
     "message": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app"
   },
+  "home_description": {
+    "message": "Eesti Ilm on rahulik ja privaatne iOSi ilmarakendus Eesti jaoks ilmateenistus.ee prognooside ja avakuvavidinatega."
+  },
+  "home_eyebrow": {
+    "message": "iPhone'i ilmarakendus Eesti jaoks"
+  },
+  "home_title": {
+    "message": "Eesti ilmaprognoos, rahulik ja selge."
+  },
+  "home_pitch": {
+    "message": "Eesti Ilm näitab Eesti paikade ilmaprognoosi lihtsas ja soojas rakenduses. Vähe elemente, kerge lugeda, eesti ja inglise keeles."
+  },
+  "home_cta_testflight": {
+    "message": "Proovi beetaversiooni TestFlightis"
+  },
+  "home_features_label": {
+    "message": "Võimalused"
+  },
+  "home_feature_forecast_title": {
+    "message": "Eesti ilmaprognoos"
+  },
+  "home_feature_forecast_body": {
+    "message": "Ilmaprognoosid Keskkonnaagentuurilt ({link}). Alla nulli sinisega, nullist ülespoole sooja punasega, alati koos miinusmärgiga."
+  },
+  "home_feature_widgets_title": {
+    "message": "Avakuva vidinad"
+  },
+  "home_feature_widgets_body": {
+    "message": "Vaata ilma ühe pilguga väikese ja keskmise avakuvavidinaga, ilma rakendust avamata."
+  },
+  "home_feature_privacy_title": {
+    "message": "Privaatne juba loomult"
+  },
+  "home_feature_privacy_body": {
+    "message": "Pole kontot, reklaame ega andmete kogumist. Eesti Ilm ei jälgi sind ega küsi sinu asukohta."
+  },
   "page_last_updated": {
     "message": "Viimati uuendatud: {date}"
   },
@@ -43,9 +79,6 @@
   },
   "page_summary_title": {
     "message": "Lühidalt"
-  },
-  "placeholder_home": {
-    "message": "Rakenduse veebileht on loomisel. Tule peagi tagasi."
   },
   "support_lead": {
     "message": "Kas sul on küsimusi Eesti Ilma kohta või ei tööta miski ootuspäraselt? Võta allpool ühendust."
