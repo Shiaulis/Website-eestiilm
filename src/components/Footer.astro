@@ -1,0 +1,19 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocale, useTranslations } from '../i18n';
+import { GITHUB_URL, SITE_NAME } from '../site';
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+// The year of the build; every deploy refreshes it.
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<ul>
+		<li><a href={getRelativeLocaleUrl(locale, '/privacy/')}>{t('nav.privacy')}</a></li>
+		<li><a href={getRelativeLocaleUrl(locale, '/support/')}>{t('nav.support')}</a></li>
+		<li><a href={GITHUB_URL}>{t('footer.sourceCode')}</a></li>
+	</ul>
+	<p>© {year} {SITE_NAME}</p>
+</footer>

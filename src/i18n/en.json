@@ -14,5 +14,12 @@
     "title": "Page not found",
     "body": "The page you are looking for does not exist or has moved.",
     "backHome": "Go to the home page"
+  },
+  "site": {
+    "description": "Eesti Ilm is an iOS weather app for Estonia."
+  },
+  "placeholder": {
+    "home": "The website for the app is being built. Check back soon.",
+    "page": "This page is being written. Check back soon."
   }
 }

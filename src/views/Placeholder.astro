@@ -1,0 +1,17 @@
+---
+// Holds a fixed URL (/privacy/, /support/ and their /et/ versions) until its page ticket adds the text.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocale, useTranslations, type UIKey } from '../i18n';
+
+interface Props {
+	titleKey: UIKey;
+}
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+const title = t(Astro.props.titleKey);
+---
+
+<BaseLayout title={title} noindex>
+	<h1>{title}</h1>
+	<p>{t('placeholder.page')}</p>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+// The placeholder home page, shared by / and /et/. The landing page ticket (EES-109) replaces it.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocale, useTranslations } from '../i18n';
+import { SITE_NAME } from '../site';
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<BaseLayout>
+	<h1>{SITE_NAME}</h1>
+	<p>{t('site.description')}</p>
+	<p>{t('placeholder.home')}</p>
+</BaseLayout>
