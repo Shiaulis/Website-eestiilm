@@ -25,6 +25,10 @@
 	--color-secondary-text: #625a6e;
 	--color-separator: #ece4dd;
 	--color-accent: #b0452c;
+	/* Text on Accent (buttons). Not a palette colour of its own: Card in light, Background in dark. */
+	--color-on-accent: var(--color-card);
+	/* The cloud of the app icon, on the 404 page. Non-text, never used for text. */
+	--color-cloud: #8e8699;
 
 	/* The dusk gradient: the same in light and dark, used only for the horizon line. */
 	--dusk-start: #3b2c5a;
@@ -46,6 +50,8 @@
 		--color-secondary-text: #aba2b5;
 		--color-separator: #2e2738;
 		--color-accent: #f2936f;
+		--color-on-accent: var(--color-background);
+		--color-cloud: #9a92a6;
 	}
 }
 

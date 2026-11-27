@@ -12,11 +12,18 @@ interface Props {
 	description?: string;
 	/** Keeps the page out of search results (placeholders, 404). */
 	noindex?: boolean;
+	/**
+	 * The 404 page. Apache serves it for any missing URL, so it has no address of its own:
+	 * no canonical or hreflang links, no og:url, `noindex`, and the language switch goes to
+	 * each language's home page.
+	 */
+	notFound?: boolean;
 }
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
-const { title, description = t('site.description'), noindex = false } = Astro.props;
+const { title, description = t('site.description'), notFound = false } = Astro.props;
+const noindex = notFound || (Astro.props.noindex ?? false);
 
 const pageTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
 const path = pathWithoutLocale(Astro.url.pathname);
@@ -38,11 +45,18 @@ const ogLocales: Record<typeof locale, string> = { en: 'en_US', et: 'et_EE' };
 		<title>{pageTitle}</title>
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex" />}
-		<link rel="canonical" href={canonicalURL} />
-
-		<!-- The same page in every language, so search engines show the right one. -->
-		{locales.map((l) => <link rel="alternate" hreflang={l} href={getAbsoluteLocaleUrl(l, path)} />)}
-		<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl(defaultLocale, path)} />
+		{
+			!notFound && (
+				<>
+					<link rel="canonical" href={canonicalURL} />
+					<!-- The same page in every language, so search engines show the right one. -->
+					{locales.map((l) => (
+						<link rel="alternate" hreflang={l} href={getAbsoluteLocaleUrl(l, path)} />
+					))}
+					<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl(defaultLocale, path)} />
+				</>
+			)
+		}
 
 		<!-- Browser tab icon (SVG, with a 32px .ico for older browsers) and the iOS home screen icon. -->
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -56,7 +70,7 @@ const ogLocales: Record<typeof locale, string> = { en: 'en_US', et: 'et_EE' };
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonicalURL} />
+		{!notFound && <meta property="og:url" content={canonicalURL} />}
 		<meta property="og:locale" content={ogLocales[locale]} />
 		{locales.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={ogLocales[l]} />)}
 		<meta property="og:image" content={shareImageURL} />
@@ -67,7 +81,7 @@ const ogLocales: Record<typeof locale, string> = { en: 'en_US', et: 'et_EE' };
 		<meta name="twitter:card" content="summary_large_image" />
 	</head>
 	<body>
-		<Header />
+		<Header languageSwitchPath={notFound ? '/' : undefined} />
 		<div class="horizon"></div>
 		<main class="container">
 			<slot />

@@ -27,7 +27,8 @@ The owner is an iOS developer, not primarily a web developer. On every web chang
 - `src/site.ts`: untranslated constants (app name, site URL, GitHub link, data source link).
 - `src/styles/global.css`: palette, font and base styles shared by every page.
 - `public/`: static files served as they are: icons, share image, `fonts/` and `.htaccess`.
-- `public/.htaccess`: Apache settings on Hostinger (www redirect, security headers, caching).
+- `public/.htaccess`: Apache settings on Hostinger (www redirect, security headers, caching, the English 404 page).
+- `public/et/.htaccess`: only the Estonian 404 page for missing URLs under `/et/`; every other setting comes from the root file.
 
 ## Pages
 
@@ -36,7 +37,7 @@ Planned for the first version:
 - Landing page: what the app does, screenshots, App Store link (once the app is back on the App Store).
 - Privacy policy: the App Store Connect Privacy Policy URL.
 - Support: contact and FAQ, the App Store Connect Support URL.
-- 404 page, served by Apache for missing URLs.
+- 404 page, served by Apache for missing URLs: `/404.html` in English, `/et/404/index.html` for misses under `/et/`. It has `noindex` and no canonical or `hreflang` links, because it has no address of its own.
 
 Do not rename or move these URLs: they are stored in App Store Connect and in the app repo's `fastlane/metadata/`.
 
