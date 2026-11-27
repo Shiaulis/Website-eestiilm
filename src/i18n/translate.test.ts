@@ -1,44 +1,59 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createTranslator, lookup, splitAtPlaceholder, type Messages } from './translate.ts';
-import { contentLocales, locales, pathWithoutLocale, useTranslations } from './index.ts';
+import { contentLocales, locales, pathWithoutLocale, useTranslations, type UIKey } from './index.ts';
 import en from './en.json' with { type: 'json' };
 
-const source: Messages = { nav: { home: 'Home', privacy: 'Privacy policy' }, footer: { year: 'Year' } };
+const source: Messages = {
+	nav_home: { message: 'Home', description: 'Home link' },
+	nav_privacy: { message: 'Privacy policy', description: 'Privacy link' },
+	footer_year: { message: 'Year', description: 'Year label' },
+};
 
 test('uses the translation when it is present', () => {
-	const t = createTranslator(source, { nav: { home: 'Avaleht' } });
-	assert.equal(t('nav.home'), 'Avaleht');
+	const t = createTranslator(source, { nav_home: { message: 'Avaleht' } });
+	assert.equal(t('nav_home'), 'Avaleht');
 });
 
 test('falls back to English when Crowdin exports an empty string', () => {
-	const t = createTranslator(source, { nav: { home: '', privacy: '   ' } });
-	assert.equal(t('nav.home'), 'Home');
-	assert.equal(t('nav.privacy'), 'Privacy policy');
+	const t = createTranslator(source, { nav_home: { message: '' }, nav_privacy: { message: '   ' } });
+	assert.equal(t('nav_home'), 'Home');
+	assert.equal(t('nav_privacy'), 'Privacy policy');
 });
 
 test('falls back to English when the key or the whole file is missing', () => {
-	assert.equal(createTranslator(source, { nav: {} })('nav.privacy'), 'Privacy policy');
-	assert.equal(createTranslator(source, {})('footer.year'), 'Year');
-	assert.equal(createTranslator(source)('footer.year'), 'Year');
+	assert.equal(createTranslator(source, { nav_home: { message: 'Avaleht' } })('nav_privacy'), 'Privacy policy');
+	assert.equal(createTranslator(source, {})('footer_year'), 'Year');
+	assert.equal(createTranslator(source)('footer_year'), 'Year');
+});
+
+test('falls back to English when a translation has no message', () => {
+	const broken = { nav_home: {} } as unknown as Messages;
+	assert.equal(createTranslator(source, broken)('nav_home'), 'Home');
 });
 
 test('throws when English has no such string', () => {
-	assert.throws(() => createTranslator(source, {})('nav.missing'), /Missing English string "nav.missing"/);
-	assert.throws(() => createTranslator(source, {})('nav'), /Missing English string "nav"/);
+	assert.throws(() => createTranslator(source, {})('nav_missing'), /Missing English string "nav_missing"/);
+	assert.throws(() => createTranslator(source, {})('toString'), /Missing English string "toString"/);
 });
 
-function keys(messages: Messages, prefix = ''): string[] {
-	return Object.entries(messages).flatMap(([key, value]) =>
-		typeof value === 'string' ? [`${prefix}${key}`] : keys(value, `${prefix}${key}.`),
-	);
-}
+// Crowdin reads en.json as Chrome JSON: flat keys, each with a message and a description.
+// Chrome JSON keys allow only ASCII letters, digits and underscores; lowercase keeps them unique
+// because Chrome treats keys case-insensitively.
+test('every string in en.json has a key Chrome JSON accepts, a message and a description', () => {
+	for (const [key, entry] of Object.entries(en)) {
+		assert.match(key, /^[a-z][a-z0-9_]*$/, `en.json: "${key}" is not a lowercase Chrome JSON key`);
+		assert.deepEqual(Object.keys(entry).sort(), ['description', 'message'], `en.json: "${key}" has other fields`);
+		assert.ok(entry.message.trim(), `en.json: "${key}" has no message`);
+		assert.ok(entry.description.trim(), `en.json: "${key}" has no description for translators`);
+	}
+});
 
-test('every string in en.json is non-empty, and every locale returns text for it', () => {
-	for (const key of keys(en)) {
-		assert.ok(lookup(en, key)?.trim(), `en.json: "${key}" is empty`);
+test('every locale returns text for every string in en.json', () => {
+	for (const key of Object.keys(en) as UIKey[]) {
+		assert.equal(lookup(en, key), en[key].message);
 		for (const locale of locales) {
-			assert.ok(useTranslations(locale)(key as never).trim(), `${locale}: "${key}" is empty`);
+			assert.ok(useTranslations(locale)(key).trim(), `${locale}: "${key}" is empty`);
 		}
 	}
 });
@@ -62,8 +77,9 @@ test('does not split text without exactly one placeholder', () => {
 	assert.equal(splitAtPlaceholder('{link} and {link}', 'link'), undefined);
 });
 
-test('the English footer credit has its link placeholder', () => {
-	assert.ok(splitAtPlaceholder(en.footer.dataCredit, 'link'));
+test('the English placeholders appear exactly once', () => {
+	assert.ok(splitAtPlaceholder(en.footer_data_credit.message, 'link'));
+	assert.ok(splitAtPlaceholder(en.page_last_updated.message, 'date'));
 });
 
 test('page text is looked up in the page locale first, then in English', () => {

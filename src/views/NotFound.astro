@@ -11,7 +11,7 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 ---
 
-<BaseLayout title={t('notFound.title')} description={t('notFound.body')} notFound>
+<BaseLayout title={t('not_found_title')} description={t('not_found_body')} notFound>
 	<div class="not-found">
 		<!--
 			The cloud from the app icon (one path, as in the design book), in the Cloud colour.
@@ -25,9 +25,9 @@ const t = useTranslations(locale);
 			></path>
 		</svg>
 		<p class="code">404</p>
-		<h1>{t('notFound.title')}</h1>
-		<p class="body">{t('notFound.body')}</p>
-		<a class="button" href={getRelativeLocaleUrl(locale, '/')}>{t('notFound.backHome')}</a>
+		<h1>{t('not_found_title')}</h1>
+		<p class="body">{t('not_found_body')}</p>
+		<a class="button" href={getRelativeLocaleUrl(locale, '/')}>{t('not_found_back_home')}</a>
 	</div>
 </BaseLayout>
 

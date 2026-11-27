@@ -1,33 +1,70 @@
 {
-  "nav": {
-    "home": "Home",
-    "privacy": "Privacy policy",
-    "support": "Support"
+  "nav_home": {
+    "message": "Home",
+    "description": "Name of the home page, for a link to it. Not shown on the site yet: the header and footer link to the home page through the app icon and name. One or two words."
   },
-  "footer": {
-    "sourceCode": "Source code on GitHub",
-    "dataCredit": "Forecast data comes from the Estonian Environment Agency ({link}). Eesti Ilm is an independent app and is not affiliated with the agency."
+  "nav_privacy": {
+    "message": "Privacy policy",
+    "description": "Link to the privacy policy page, in the header (wide screens only) and in the footer of every page. The header has little room: keep it to two or three words."
   },
-  "language": {
-    "switchLabel": "Language"
+  "nav_support": {
+    "message": "Support",
+    "description": "Link to the support page (contact and frequently asked questions), in the header (wide screens only) and in the footer of every page. Until the support page has its own text, also its heading and browser tab title. One or two words."
   },
-  "notFound": {
-    "title": "Page not found",
-    "body": "The page you are looking for does not exist or has moved.",
-    "backHome": "Go to the home page"
+  "footer_source_code": {
+    "message": "Source code on GitHub",
+    "description": "Link in the footer of every page to the app's source code on GitHub. \"GitHub\" is a product name: keep it as it is."
   },
-  "site": {
-    "description": "Eesti Ilm is an iOS weather app for Estonia.",
-    "shareImageAlt": "The Eesti Ilm app icon, the name Eesti Ilm and the address eestiilm.app"
+  "footer_data_credit": {
+    "message": "Forecast data comes from the Estonian Environment Agency ({link}). Eesti Ilm is an independent app and is not affiliated with the agency.",
+    "description": "Credit line in the footer of every page. {link} becomes a link to the agency's weather site, with the text \"ilmateenistus.ee\". Keep {link} exactly once and don't translate it. \"Eesti Ilm\" is the app's name: keep it as it is. The second sentence matters: the app must not look official or connected to the agency, so keep its meaning exactly."
   },
-  "page": {
-    "lastUpdated": "Last updated {date}",
-    "onThisPage": "On this page",
-    "summaryLink": "Summary",
-    "summaryTitle": "In short"
+  "language_switch_label": {
+    "message": "Language",
+    "description": "Name of the EN / ET language switch in the header, read out by screen readers. Not shown on screen. One word."
   },
-  "placeholder": {
-    "home": "The website for the app is being built. Check back soon.",
-    "page": "This page is being written. Check back soon."
+  "not_found_title": {
+    "message": "Page not found",
+    "description": "Heading and browser tab title of the 404 page, shown when someone opens a link to a page that doesn't exist. Short, like a title."
+  },
+  "not_found_body": {
+    "message": "The page you are looking for does not exist or has moved.",
+    "description": "Text under the heading on the 404 page. Also the page's description in search results and link previews. One sentence."
+  },
+  "not_found_back_home": {
+    "message": "Go to the home page",
+    "description": "Button on the 404 page that opens the home page. A short command, a few words: it has to fit on a button on a phone."
+  },
+  "site_description": {
+    "message": "Eesti Ilm is an iOS weather app for Estonia.",
+    "description": "One-sentence description of the app. Shown on the home page under the app name, and the description in search results and link previews for pages that have none of their own. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\" is the app's name and \"iOS\" is Apple's system: keep both as they are."
+  },
+  "site_share_image_alt": {
+    "message": "The Eesti Ilm app icon, the name Eesti Ilm and the address eestiilm.app",
+    "description": "Alt text of the image in link previews, when someone shares a link to the site in Messages, Slack or on social sites. Screen readers read it. It describes what the image shows: the app icon, the name \"Eesti Ilm\" and the address \"eestiilm.app\". Keep the name and the address as they are."
+  },
+  "page_last_updated": {
+    "message": "Last updated {date}",
+    "description": "Line under the heading of the privacy policy and other long text pages: when the text last changed. {date} becomes the date, written out in the page's language (in English, for example \"27 November 2026\"). Keep {date} exactly once and don't translate it; put it where the language needs it."
+  },
+  "page_on_this_page": {
+    "message": "On this page",
+    "description": "Small heading, shown in capital letters, above the list of section links beside the privacy policy and other long text pages (wide screens only). A few words."
+  },
+  "page_summary_link": {
+    "message": "Summary",
+    "description": "First link in the \"On this page\" list. It jumps to the summary card at the top of the privacy policy. The card's own heading is page_summary_title (\"In short\"): \"Summary\" and \"In short\" name the same card, so translate them so that readers see they belong together. One or two words."
+  },
+  "page_summary_title": {
+    "message": "In short",
+    "description": "Heading of the summary card at the top of the privacy policy, which lists the main points in a few bullets. The \"On this page\" list links to the same card as page_summary_link (\"Summary\"): \"Summary\" and \"In short\" name the same card. A few words."
+  },
+  "placeholder_home": {
+    "message": "The website for the app is being built. Check back soon.",
+    "description": "Temporary text on the home page while the website is being built, under the app's description. It goes away when the real home page is ready."
+  },
+  "placeholder_page": {
+    "message": "This page is being written. Check back soon.",
+    "description": "Temporary text under the heading of a page whose text isn't ready yet (today the support page). It goes away when the page has its text."
   }
 }

@@ -1,6 +1,6 @@
 import en from './en.json' with { type: 'json' };
 import et from './et.json' with { type: 'json' };
-import { createTranslator, type Messages, type MessageKey } from './translate.ts';
+import { createTranslator, type Messages } from './translate.ts';
 
 export { splitAtPlaceholder } from './translate.ts';
 
@@ -9,7 +9,8 @@ export const locales = ['en', 'et'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
-export type UIKey = MessageKey<typeof en>;
+/** The key of a UI string in en.json, e.g. "nav_privacy". */
+export type UIKey = keyof typeof en & string;
 
 const translations: Record<Locale, Messages | undefined> = { en, et };
 
