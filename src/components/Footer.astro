@@ -1,19 +1,102 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLocale, useTranslations } from '../i18n';
-import { GITHUB_URL, SITE_NAME } from '../site';
+import { getLocale, splitAtPlaceholder, useTranslations } from '../i18n';
+import { DATA_SOURCE_NAME, DATA_SOURCE_URL, GITHUB_URL, SITE_NAME } from '../site';
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 // The year of the build; every deploy refreshes it.
 const year = new Date().getFullYear();
+// The data credit has a {link} placeholder for the link to the data source.
+const credit = t('footer.dataCredit');
+const creditParts = splitAtPlaceholder(credit, 'link');
 ---
 
-<footer>
-	<ul>
-		<li><a href={getRelativeLocaleUrl(locale, '/privacy/')}>{t('nav.privacy')}</a></li>
-		<li><a href={getRelativeLocaleUrl(locale, '/support/')}>{t('nav.support')}</a></li>
-		<li><a href={GITHUB_URL}>{t('footer.sourceCode')}</a></li>
-	</ul>
-	<p>© {year} {SITE_NAME}</p>
-</footer>
+<div class="container">
+	<footer>
+		<ul>
+			<li><a href={getRelativeLocaleUrl(locale, '/support/')}>{t('nav.support')}</a></li>
+			<li><a href={getRelativeLocaleUrl(locale, '/privacy/')}>{t('nav.privacy')}</a></li>
+			<li><a href={GITHUB_URL}>{t('footer.sourceCode')}</a></li>
+		</ul>
+		<p class="credit">
+			{
+				creditParts ? (
+					<>
+						{creditParts[0]}
+						<a href={DATA_SOURCE_URL}>{DATA_SOURCE_NAME}</a>
+						{creditParts[1]}
+					</>
+				) : (
+					credit
+				)
+			}
+		</p>
+		<p class="copyright">© {year} {SITE_NAME}</p>
+	</footer>
+</div>
+
+<style>
+	/* Centred on desktop, left-aligned on phone. */
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 14px;
+		margin-top: 56px;
+		padding: 32px 0 44px;
+		border-top: 1px solid var(--color-separator);
+		font-size: 0.875rem; /* 14px */
+		text-align: center;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 12px 24px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0;
+	}
+
+	/* Footer links: Text colour, underlined on hover. The link in the credit stays a text link. */
+	ul a {
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	ul a:hover {
+		text-decoration: underline 1px;
+	}
+
+	p {
+		margin: 0;
+		color: var(--color-secondary-text);
+	}
+
+	.credit {
+		max-width: 40rem; /* 640px */
+		font-size: 0.9375rem; /* 15px */
+	}
+
+	.copyright {
+		font-size: 0.8125rem; /* 13px */
+	}
+
+	@media (max-width: 40em) {
+		footer {
+			align-items: flex-start;
+			margin-top: 44px;
+			text-align: left;
+		}
+
+		ul {
+			flex-direction: column;
+		}
+	}
+</style>

@@ -5,7 +5,8 @@
     "support": "Support"
   },
   "footer": {
-    "sourceCode": "Source code on GitHub"
+    "sourceCode": "Source code on GitHub",
+    "dataCredit": "Forecast data comes from the Estonian Environment Agency ({link}). Eesti Ilm is an independent app and is not affiliated with the agency."
   },
   "language": {
     "switchLabel": "Language"
@@ -16,7 +17,8 @@
     "backHome": "Go to the home page"
   },
   "site": {
-    "description": "Eesti Ilm is an iOS weather app for Estonia."
+    "description": "Eesti Ilm is an iOS weather app for Estonia.",
+    "shareImageAlt": "The Eesti Ilm app icon, the name Eesti Ilm and the address eestiilm.app"
   },
   "placeholder": {
     "home": "The website for the app is being built. Check back soon.",

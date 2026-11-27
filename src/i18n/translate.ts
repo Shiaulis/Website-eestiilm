@@ -34,3 +34,14 @@ export function createTranslator<Key extends string = string>(
 		return english;
 	};
 }
+
+/**
+ * Splits a string at a `{name}` placeholder, for text with a link in the middle:
+ * "Data from the agency ({link})." -> ["Data from the agency (", ")."].
+ * Returns undefined when the placeholder is missing or appears more than once (for example a
+ * translation that dropped it), so the page can show the text without the link.
+ */
+export function splitAtPlaceholder(text: string, name: string): [string, string] | undefined {
+	const parts = text.split(`{${name}}`);
+	return parts.length === 2 ? [parts[0], parts[1]] : undefined;
+}
