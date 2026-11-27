@@ -37,7 +37,7 @@ Arendajale ei saadeta midagi: rakendusel ei ole oma serverit.
 
 Kui otsustad analüüsiandmeid rakenduste arendajatega jagada, saadab Apple arendajale kokkujooksmiste aruanded ja kasutusstatistika, näiteks selle, mitmes seadmes rakendust kasutatakse. Apple muudab need andmed anonüümseks enne, kui arendaja neid näeb, ja arendaja kasutab neid ainult rakenduse vigade leidmiseks ja parandamiseks.
 
-Sina otsustad, kas neid jagada. Ava oma iPhone'is Seaded › Privaatsus ja turvalisus › Analüüs ja täiustused ning lülita valik „Jaga rakenduste arendajatega“ sisse või välja.
+Sina otsustad, kas neid jagada. Ava oma iPhone'is Settings › Privacy & Security › Analytics & Improvements ning lülita valik Share With App Developers sisse või välja.
 
 ## Asukoht
 
