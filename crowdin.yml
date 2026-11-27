@@ -22,9 +22,11 @@ files:
   - source: /src/i18n/en.json
     translation: /src/i18n/%two_letters_code%.json
     type: chrome
-  # Page text (privacy policy, support, landing): one Markdown file per page. Crowdin can't skip
-  # untranslated strings in Markdown, so an Estonian page is exported only once it is fully
-  # translated. Until then the Estonian URL shows the English text.
+    # Leave strings without an Estonian translation out of et.json, so the site shows English.
+    skip_untranslated_strings: true
+  # Page text (privacy policy, support, landing): one Markdown file per page. Crowdin's GitHub
+  # integration ignores skip_untranslated_files and exports untranslated Markdown strings as
+  # English, so merge its PR only once every string of the page is translated.
   - source: /src/content/pages/en/*.md
     translation: /src/content/pages/%two_letters_code%/%original_file_name%
     skip_untranslated_files: true
