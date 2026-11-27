@@ -65,6 +65,8 @@ To use your rights, write to [support@eestiilm.app](mailto:support@eestiilm.app)
 
 When this policy changes, the new version is published on this page, and the "Last updated" date at the top changes with it.
 
+This policy is published in English and Estonian. If the two versions differ, the English version applies.
+
 ## Contact
 
 Questions about privacy: [support@eestiilm.app](mailto:support@eestiilm.app).
