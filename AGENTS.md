@@ -111,6 +111,7 @@ Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.h
 ## Git workflow
 
 - `master` is protected: changes land through a PR with one approval, squash merges only.
+- `.github/CODEOWNERS` assigns `*` to `@Shiaulis`, so GitHub automatically requests review on every PR.
 - One branch per Linear ticket, named with the ticket's git branch name.
 - Coding agents commit, push, open PRs and comment as the `telbin-bot` machine account. They never approve or directly merge PRs.
 - Open PRs against `master` ready for review (no `--draft`). Fix CI failures and review findings with follow-up commits on the same PR.
