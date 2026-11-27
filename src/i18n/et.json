@@ -14,5 +14,12 @@
     "title": "Lehte ei leitud",
     "body": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
     "backHome": "Mine avalehele"
+  },
+  "site": {
+    "description": ""
+  },
+  "placeholder": {
+    "home": "",
+    "page": ""
   }
 }
