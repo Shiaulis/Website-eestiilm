@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import { createTranslator, lookup, splitAtPlaceholder, type Messages } from './translate.ts';
 import { contentLocales, languageName, locales, pathWithoutLocale, useTranslations, type UIKey } from './index.ts';
 import en from './en.json' with { type: 'json' };
+import et from './et.json' with { type: 'json' };
 
 const source: Messages = {
 	nav_home: { message: 'Home', description: 'Home link' },
@@ -40,12 +41,27 @@ test('throws when English has no such string', () => {
 // Crowdin reads en.json as Chrome JSON: flat keys, each with a message and a description.
 // Chrome JSON keys allow only ASCII letters, digits and underscores; lowercase keeps them unique
 // because Chrome treats keys case-insensitively.
+const chromeKey = /^[a-z][a-z0-9_]*$/;
+
 test('every string in en.json has a key Chrome JSON accepts, a message and a description', () => {
 	for (const [key, entry] of Object.entries(en)) {
-		assert.match(key, /^[a-z][a-z0-9_]*$/, `en.json: "${key}" is not a lowercase Chrome JSON key`);
+		assert.match(key, chromeKey, `en.json: "${key}" is not a lowercase Chrome JSON key`);
 		assert.deepEqual(Object.keys(entry).sort(), ['description', 'message'], `en.json: "${key}" has other fields`);
 		assert.ok(entry.message.trim(), `en.json: "${key}" has no message`);
 		assert.ok(entry.description.trim(), `en.json: "${key}" has no description for translators`);
+	}
+});
+
+// Crowdin writes et.json. Only its shape is checked, never its keys or descriptions against
+// en.json: they differ between a PR that changes English and Crowdin's next PR.
+test('every entry in et.json has the shape Crowdin exports', () => {
+	for (const [key, entry] of Object.entries<unknown>(et)) {
+		assert.match(key, chromeKey, `et.json: "${key}" is not a lowercase Chrome JSON key`);
+		assert.ok(typeof entry === 'object' && entry !== null, `et.json: "${key}" is not an object`);
+		assert.deepEqual(Object.keys(entry).sort(), ['description', 'message'], `et.json: "${key}" has other fields`);
+		for (const [field, value] of Object.entries(entry)) {
+			assert.equal(typeof value, 'string', `et.json: "${key}" has a ${field} that is not a string`);
+		}
 	}
 });
 
