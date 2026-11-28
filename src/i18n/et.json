@@ -1,1 +1,138 @@
-{}
+{
+  "nav_home": {
+    "message": "Avaleht",
+    "description": "Name of the home page, for a link to it. Not shown on the site yet: the header and footer link to the home page through the app icon and name. One or two words."
+  },
+  "nav_privacy": {
+    "message": "Privaatsuspoliitika",
+    "description": "Link to the privacy policy page, in the header (wide screens only) and in the footer of every page. The header has little room: keep it to two or three words."
+  },
+  "nav_support": {
+    "message": "Tugi",
+    "description": "Link to the support page (contact and reporting issues), in the header (wide screens only) and in the footer of every page. One or two words."
+  },
+  "footer_source_code": {
+    "message": "Lähtekood GitHub-is",
+    "description": "Link in the footer of every page to the app's source code on GitHub. \"GitHub\" is a product name: keep it as it is."
+  },
+  "footer_data_credit": {
+    "message": "Ilmaprognoosi andmed pärinevad Keskkonnaagentuurilt ({link}). Eesti Ilm on sõltumatu rakendus ega ole seotud nimetatud asutusega.",
+    "description": "Credit line in the footer of every page. {link} becomes a link to the agency's weather site, with the text \"ilmateenistus.ee\". Keep {link} exactly once and don't translate it. \"Eesti Ilm\" is the app's name: keep it as it is. The second sentence matters: the app must not look official or connected to the agency, so keep its meaning exactly."
+  },
+  "language_switch_label": {
+    "message": "Keel",
+    "description": "Name of the EN / ET language switch in the header, read out by screen readers. Not shown on screen. One word."
+  },
+  "not_found_title": {
+    "message": "Lehte ei leitud",
+    "description": "Heading and browser tab title of the 404 page, shown when someone opens a link to a page that doesn't exist. Short, like a title."
+  },
+  "not_found_body": {
+    "message": "Otsitud lehekülge ei leitud või selle asukoht võib olla muutunud.",
+    "description": "Text under the heading on the 404 page. Also the page's description in search results and link previews. One sentence."
+  },
+  "not_found_back_home": {
+    "message": "Mine avalehele",
+    "description": "Button on the 404 page that opens the home page. A short command, a few words: it has to fit on a button on a phone."
+  },
+  "site_description": {
+    "message": "Eesti Ilm on iOSi ilmarakendus Eesti jaoks.",
+    "description": "One-sentence description of the app, used in search results and link previews for pages that have none of their own. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\" is the app's name and \"iOS\" is Apple's system: keep both as they are."
+  },
+  "site_share_image_alt": {
+    "message": "Eesti Ilma rakenduse ikoon, nimi Eesti Ilm ja aadress eestiilm.app",
+    "description": "Alt text of the image in link previews, when someone shares a link to the site in Messages, Slack or on social sites. Screen readers read it. It describes what the image shows: the app icon, the name \"Eesti Ilm\" and the address \"eestiilm.app\". Keep the name and the address as they are."
+  },
+  "home_description": {
+    "message": "Eesti Ilm on rahulik ja privaatne iOSi ilmarakendus Eesti jaoks ilmateenistus.ee prognooside ja avakuvavidinatega.",
+    "description": "Description of the home page in search results and link previews. Keep it under about 150 characters, because search results cut longer text. \"Eesti Ilm\", \"iOS\" and \"ilmateenistus.ee\" stay as they are."
+  },
+  "home_eyebrow": {
+    "message": "iPhone'i ilmarakendus Eesti jaoks",
+    "description": "Small uppercase line above the main heading in the hero on the home page. Three to six words."
+  },
+  "home_title": {
+    "message": "Eesti ilmaprognoos, rahulik ja selge.",
+    "description": "Main heading (H1) in the hero on the home page, directly below home_eyebrow. A short, calm pitch in one sentence or phrase."
+  },
+  "home_pitch": {
+    "message": "Eesti Ilm näitab Eesti paikade ilmaprognoosi lihtsas ja soojas rakenduses. Vähe elemente, kerge lugeda, eesti ja inglise keeles.",
+    "description": "Short paragraph in the hero on the home page, directly under home_title. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
+  },
+  "home_cta_testflight": {
+    "message": "Proovi beetaversiooni TestFlightis",
+    "description": "Quiet text link under the hero paragraph on the home page, linking to the public TestFlight beta. Keep wording neutral: do not mention the App Store or why the app is on TestFlight. \"TestFlight\" is Apple's product name: keep it as it is. A few words."
+  },
+  "home_features_label": {
+    "message": "Võimalused",
+    "description": "Accessible label for the three-column features section on the home page, read out by screen readers and not shown on screen. One word."
+  },
+  "home_feature_forecast_title": {
+    "message": "Eesti ilmaprognoos",
+    "description": "Heading of the first feature column on the home page, above a sample cold/warm temperature display. Two or three words. Do not imply the app is official."
+  },
+  "home_feature_forecast_body": {
+    "message": "Ilmaprognoosid Keskkonnaagentuurilt ({link}). Alla nulli sinisega, nullist ülespoole sooja punasega, alati koos miinusmärgiga.",
+    "description": "Text in the first feature column on the home page, explaining the data source and the cold/warm temperature colours shown above it. {link} becomes a link to the agency's weather site, with the text \"ilmateenistus.ee\". Keep {link} exactly once and don't translate it. Do not imply the app is official or affiliated with the agency."
+  },
+  "home_feature_widgets_title": {
+    "message": "Avakuva vidinad",
+    "description": "Heading of the second feature column on the home page. Use the platform's usual term for the iPhone Home Screen. Two or three words."
+  },
+  "home_feature_widgets_body": {
+    "message": "Vaata ilma ühe pilguga väikese ja keskmise avakuvavidinaga, ilma rakendust avamata.",
+    "description": "Text in the second feature column on the home page, describing the small and medium Home Screen widgets. One sentence."
+  },
+  "home_feature_privacy_title": {
+    "message": "Privaatne juba loomult",
+    "description": "Heading of the third feature column on the home page. Two or three words."
+  },
+  "home_feature_privacy_body": {
+    "message": "Pole kontot, reklaame ega andmete kogumist. Eesti Ilm ei jälgi sind ega küsi sinu asukohta.",
+    "description": "Text in the third feature column on the home page, matching the privacy policy. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
+  },
+  "page_last_updated": {
+    "message": "Viimati uuendatud: {date}",
+    "description": "Line under the heading of the privacy policy and other long text pages: when the text last changed. {date} becomes the date, written out in the page's language (in English, for example \"27 November 2026\"). Keep {date} exactly once and don't translate it; put it where the language needs it."
+  },
+  "page_on_this_page": {
+    "message": "Sellel lehel",
+    "description": "Small heading, shown in capital letters, above the list of section links beside the privacy policy and other long text pages (wide screens only). A few words."
+  },
+  "page_summary_link": {
+    "message": "Kokkuvõte",
+    "description": "First link in the \"On this page\" list. It jumps to the summary card at the top of the privacy policy. The card's own heading is page_summary_title (\"In short\"): \"Summary\" and \"In short\" name the same card, so translate them so that readers see they belong together. One or two words."
+  },
+  "page_summary_title": {
+    "message": "Lühidalt",
+    "description": "Heading of the summary card at the top of the privacy policy, which lists the main points in a few bullets. The \"On this page\" list links to the same card as page_summary_link (\"Summary\"): \"Summary\" and \"In short\" name the same card. A few words."
+  },
+  "support_lead": {
+    "message": "Kas sul on küsimusi Eesti Ilma kohta või ei tööta miski ootuspäraselt? Võta allpool ühendust.",
+    "description": "Short intro line directly under the \"Support\" heading on the support page. \"Eesti Ilm\" is the app's name: keep it as it is. One or two short sentences."
+  },
+  "support_email_title": {
+    "message": "E-post",
+    "description": "Heading of the first contact card on the support page, for contacting the developer by email. One or two words."
+  },
+  "support_email_body": {
+    "message": "Kirjuta aadressile {link}.",
+    "description": "Short line inside the Email card on the support page. {link} becomes the clickable email address \"support@eestiilm.app\". Keep {link} exactly once and don't translate it."
+  },
+  "support_email_subject": {
+    "message": "Eesti Ilm tugi",
+    "description": "Prefilled email subject when someone clicks the support@eestiilm.app link on the support page. \"Eesti Ilm\" is the app's name: keep it as it is. Two to four words."
+  },
+  "support_issue_title": {
+    "message": "Teata probleemist",
+    "description": "Heading of the second contact card on the support page, for reporting bugs or ideas on GitHub. Short phrase matching the concise style of support_email_title (\"Email\")."
+  },
+  "support_issue_body": {
+    "message": "Ava teade {link}.",
+    "description": "Short line inside the \"Report a problem\" card on the support page. {link} becomes the text of support_issue_link (\"on GitHub\"), linking to GitHub Issues. Keep {link} exactly once and don't translate it; translate support_issue_link so both read smoothly together."
+  },
+  "support_issue_link": {
+    "message": "GitHubis",
+    "description": "Link text inserted into {link} in support_issue_body (\"Open an issue {link}.\"), linking to the app's GitHub Issues page. \"GitHub\" is a product name: keep it as it is. Match the grammar of support_issue_body."
+  }
+}
