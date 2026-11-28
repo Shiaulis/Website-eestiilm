@@ -63,7 +63,7 @@ Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.h
 - Colours are the Loojang palette, as CSS variables in `src/styles/global.css`, with light and dark values that follow the system setting. Text pairs must pass WCAG AA (4.5 : 1) in both modes.
 - Headings and the "Eesti Ilm" wordmark use Nunito ExtraBold (800), self-hosted from `public/fonts/` with its OFL licence next to it. It is the only web font; body text uses the system font. Never load fonts or other files from a third party.
 - Shared base styles (headings, text, links, lists, the `.container` width and the `.prose` column for long text) are in `src/styles/global.css`; page-specific layouts live with their pages.
-- Icons and the share image are static files in `public/`, generated once from the design book's icon assets: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png` and the header icons in `public/images/`.
+- Icons and the share image are static files in `public/`, generated once from the design book's icon assets: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png` and the header and hero icons in `public/images/`.
 
 ## Localization
 
