@@ -49,13 +49,15 @@ const pageLinks = [
 			<nav class="language" aria-label={t('language_switch_label')}>
 				<ul>
 					{
+						// Screen readers say "EN, English" / "ET, Eesti". The name starts with the visible
+						// code, so voice control users can still say what they see (WCAG 2.5.3).
 						locales.map((l) => (
 							<li>
 								<a
 									href={getRelativeLocaleUrl(l, languageSwitchPath)}
 									hreflang={l}
 									lang={l}
-									title={languageName(l)}
+									aria-label={`${l.toUpperCase()}, ${languageName(l)}`}
 									aria-current={l === locale ? 'true' : undefined}
 								>
 									{l.toUpperCase()}

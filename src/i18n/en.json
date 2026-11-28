@@ -99,13 +99,9 @@
     "message": "On this page",
     "description": "Small heading, shown in capital letters, above the list of section links beside the privacy policy and other long text pages (wide screens only). A few words."
   },
-  "page_summary_link": {
-    "message": "Summary",
-    "description": "First link in the \"On this page\" list. It jumps to the summary card at the top of the privacy policy. The card's own heading is page_summary_title (\"In short\"): \"Summary\" and \"In short\" name the same card, so translate them so that readers see they belong together. One or two words."
-  },
   "page_summary_title": {
     "message": "In short",
-    "description": "Heading of the summary card at the top of the privacy policy, which lists the main points in a few bullets. The \"On this page\" list links to the same card as page_summary_link (\"Summary\"): \"Summary\" and \"In short\" name the same card. A few words."
+    "description": "Heading of the summary card at the top of the privacy policy, which lists the main points in a few bullets. The same text is also the first link in the \"On this page\" list, which jumps to the card (wide screens only). A few words."
   },
   "support_lead": {
     "message": "Questions about Eesti Ilm, or something not working? Get in touch below.",
