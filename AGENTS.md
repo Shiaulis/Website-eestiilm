@@ -74,9 +74,9 @@ Follow the design book's Website section: `ReleaseRelatedInfo/DesignBook/index.h
   1. A PR adds or changes English only (`src/i18n/en.json`, `src/content/pages/en/*.md`). It doesn't touch `src/i18n/et.json` or `src/content/pages/et/`.
   2. After merge, Crowdin syncs the new strings.
   3. An agent signed in to the Crowdin MCP connector as telbin-bot (Translator role) adds the Estonian string by string, using each string's description as context. It never approves.
-  4. Crowdin exports unapproved translations too, so its "Update translations from Crowdin" PR brings the AI Estonian in right away. Merge it once it has no English text in Estonian files; approval is not required. The AI Estonian is live before review.
+  4. Crowdin exports unapproved translations too, so its "Update translations from Crowdin" PR brings the AI Estonian in right away. Merge it once no source string is left untranslated in the Estonian files (English kept on purpose, such as iOS setting names, is fine); approval is not required. The AI Estonian is live before review.
   5. The owner or proofreader approves or corrects the Estonian in Crowdin whenever they can. Corrections come back in Crowdin's next PR.
-  6. Until Crowdin's PR is merged, Estonian pages show English for the new text (the existing fallback).
+  6. Until Crowdin's PR is merged, Estonian pages show English for new text (the existing fallback). Text that changed keeps its old Estonian until then: the site doesn't track translation freshness, and this gap is accepted. For a legally relevant change (the privacy policy), merge Crowdin's PR promptly.
 - Crowdin owns `src/i18n/et.json` and `src/content/pages/et/`. Don't create empty Estonian placeholders: a missing key or page already falls back to English, and an empty Markdown file would render a blank page.
 - Entries in `et.json` have `"description": ""`, as Crowdin exports them.
 - "Export only approved" is off in the Crowdin project on purpose, so unreviewed AI Estonian can go live. Turning it on later, once everything is approved, would make only approved text live.
