@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createTranslator, lookup, splitAtPlaceholder, type Messages } from './translate.ts';
-import { contentLocales, locales, pathWithoutLocale, useTranslations, type UIKey } from './index.ts';
+import { contentLocales, languageName, locales, pathWithoutLocale, useTranslations, type UIKey } from './index.ts';
 import en from './en.json' with { type: 'json' };
 
 const source: Messages = {
@@ -56,6 +56,12 @@ test('every locale returns text for every string in en.json', () => {
 			assert.ok(useTranslations(locale)(key).trim(), `${locale}: "${key}" is empty`);
 		}
 	}
+});
+
+// Part of each EN / ET link's accessible name. It comes from Node's Intl data, not from Crowdin.
+test('names each language in that language', () => {
+	assert.equal(languageName('en'), 'English');
+	assert.equal(languageName('et'), 'Eesti');
 });
 
 test('removes the locale prefix from a path', () => {

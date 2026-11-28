@@ -32,7 +32,7 @@ const updatedISO = updated?.toISOString().slice(0, 10);
 		<nav class="toc" aria-labelledby="toc-title">
 			<p id="toc-title">{t('page_on_this_page')}</p>
 			<ol>
-				{summary && <li><a href="#summary">{t('page_summary_link')}</a></li>}
+				{summary && <li><a href="#summary">{t('page_summary_title')}</a></li>}
 				{sections.map((section) => <li><a href={`#${section.slug}`}>{section.text}</a></li>)}
 			</ol>
 		</nav>
